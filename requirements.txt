@@ -5,5 +5,5 @@ pandas==1.3.3
 protobuf==5.28.2
 streamlit==1.38.0
 xfilios==0.0.4
-~treamlit==1.29.0
+streamlit==1.29.0
 dropbox
