@@ -6,3 +6,4 @@ google_api_python_client==2.147.0
 pandas==1.3.3
 protobuf==5.28.3
 streamlit
+distutils
