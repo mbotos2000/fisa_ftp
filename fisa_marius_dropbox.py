@@ -11,8 +11,6 @@ import os
 import base64
 import time
 from mailmerge import MailMerge
-from googleapiclient.discovery import build
-from google.oauth2 import service_account
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
