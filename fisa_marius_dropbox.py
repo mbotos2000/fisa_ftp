@@ -1,5 +1,7 @@
 from __future__ import print_function
-token='sl.B_sspewzo5nWw9ATf9SuEkB3sd9af46zQt5pruicUMrJ3jT2cB_7GmdIsVZLd7p4ZCZ4MmRIwY2KNrTbJKvZmbmnc7CKjG-BT84lZbMtWMSoy8y-VYw4txgN60TcP8NA91xZeLtTt-cE'
+token=st.ssecrets['dbtoken']
+#
+
 from io import BytesIO
 import dropbox
 from datetime import *
@@ -35,7 +37,7 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     bin_str = base64.b64encode(data).decode()
     href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
     return href
-
+st.write(token)
 def strip_last(x):
 	return x.strip()
 
