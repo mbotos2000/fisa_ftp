@@ -1,5 +1,5 @@
 from __future__ import print_function
-token=st.secrets['dbtoken']
+
 #
 
 from io import BytesIO
@@ -13,6 +13,7 @@ import os
 import base64
 import time
 from mailmerge import MailMerge
+token=st.secrets['dbtoken']
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
