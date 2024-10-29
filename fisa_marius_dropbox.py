@@ -1,5 +1,5 @@
 from __future__ import print_function
-token=st.ssecrets['dbtoken']
+token=st.secrets['dbtoken']
 #
 
 from io import BytesIO
