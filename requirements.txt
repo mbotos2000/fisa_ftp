@@ -6,3 +6,5 @@ streamlit==1.38.0
 xfilios==0.0.4
 streamlit
 dropbox
+pip
+distutils
