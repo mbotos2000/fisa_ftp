@@ -1,8 +1,6 @@
-docx2python==3.0.0
-docx_mailmerge2==0.8.2
+docx2python
+docx_mailmerge2
 pandas
 streamlit
 xfilios
 dropbox
-pip
-setuptools
