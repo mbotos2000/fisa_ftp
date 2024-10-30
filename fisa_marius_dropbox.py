@@ -848,7 +848,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
                 #schimba_2_3(add_selectbox_TA)
                 #st.write(st.session_state['M_2_3_1'])
-                st.session_state['M_2_4']=str(data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
+                #st.session_state['M_2_4']=str(data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 #st.write("Anul in care e studiata disciplina aleasa: ",st.session_state['M_2_4'])
                 st.session_state['M_2_5']=str(data1['semestru'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 #st.write("Semestrul in care e studiata disciplina aleasa: ",st.session_state['M_2_5'])
@@ -1471,7 +1471,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         new_row = {key: st.session_state.get(key, '') for key in st.session_state}
         df = df.append(new_row, ignore_index=True)
         data = df.to_csv(index=False)
-        with io.BytesIO(data.encode()) as stream:
+        with BytesIO(data.encode()) as stream:
             stream.seek(0)
 
             DBX.files_upload(stream.read(), "/baza.csv", mode=dropbox.files.WriteMode.overwrite)
