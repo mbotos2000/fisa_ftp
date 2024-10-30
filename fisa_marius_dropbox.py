@@ -814,6 +814,10 @@ if st.session_state['file']!=None or st.session_state['ut']:
         submitted = st.form_submit_button("Treci la subcapitolul 3.7")
         if submitted:
                 #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
+                               
+                _, res = DBX.files_download("/planinv.csv")
+                with BytesIO(res.content) as stream:
+                        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
                 
                 data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
 
