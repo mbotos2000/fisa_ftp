@@ -1,7 +1,4 @@
 from __future__ import print_function
-
-#
-
 from io import BytesIO
 import dropbox
 from datetime import *
@@ -23,8 +20,6 @@ def clean_value(value):
         return value
     else:
         return 'Unknown object'  # Handle unrecognized objects by converting them to a string
-
-
 def fix_encoding(text):
     if isinstance(text, str):
         try:
@@ -45,8 +40,6 @@ def strip_last(x):
 @st.cache_data
 def my_function(x):
   return list(dict.fromkeys(x))
-
-
 
 @st.cache_data
 def schimba_1_1(new):
@@ -704,13 +697,14 @@ departamentele= {
   'Limbi straine':'Languages'}
 
 DBX = dropbox.Dropbox(token)
-
-
-
 _, res = DBX.files_download("/lista_cd.csv")
 
 with BytesIO(res.content) as stream:
         data = pd.read_csv(stream,encoding="ISO-8859-1")
+
+_, res = DBX.files_download("/planinv.csv")
+with BytesIO(res.content) as stream:
+        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
 
 st.session_state['file'] = st.file_uploader("Incarca o fisa a disciplinei daca ea exista")
 if not(st.session_state['ut']):
@@ -788,17 +782,11 @@ if st.session_state['file']!=None or st.session_state['ut']:
             st.session_state['cap2']='2'
   if st.session_state['cap2']=='2':
     with st.form('capitolul 2 si 3'):
-	_, res = DBX.files_download("/lista_cd.csv")
 
-        with BytesIO(res.content) as stream:
-                data = pd.read_csv(stream,encoding="ISO-8859-1")
         #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
         
         st.header('Capitolul 2 si 3:Date despre disciplină si Timp total estimat')
-        _, res = DBX.files_download("/planinv.csv")
 
-        with BytesIO(res.content) as stream:
-                data1 = pd.read_csv(stream,encoding="ISO-8859-1")
 	#data1 = read_csv("planinv.csv", encoding="ISO-8859-1")
         #st.write(data1)
         
