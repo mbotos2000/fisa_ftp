@@ -791,14 +791,14 @@ if st.session_state['file']!=None or st.session_state['ut']:
 	_, res = DBX.files_download("/lista_cd.csv")
 
         with BytesIO(res.content) as stream:
-                        data = pd.read_csv(stream,encoding="ISO-8859-1")
+                data = pd.read_csv(stream,encoding="ISO-8859-1")
         #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
         
         st.header('Capitolul 2 si 3:Date despre disciplină si Timp total estimat')
         _, res = DBX.files_download("/planinv.csv")
 
         with BytesIO(res.content) as stream:
-                        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
+                data1 = pd.read_csv(stream,encoding="ISO-8859-1")
 	#data1 = read_csv("planinv.csv", encoding="ISO-8859-1")
         #st.write(data1)
         
