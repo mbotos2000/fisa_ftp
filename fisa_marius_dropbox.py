@@ -788,11 +788,18 @@ if st.session_state['file']!=None or st.session_state['ut']:
             st.session_state['cap2']='2'
   if st.session_state['cap2']=='2':
     with st.form('capitolul 2 si 3'):
+	_, res = DBX.files_download("/lista_cd.csv")
 
-        data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
+        with BytesIO(res.content) as stream:
+                        data = pd.read_csv(stream,encoding="ISO-8859-1")
+        #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
         
         st.header('Capitolul 2 si 3:Date despre disciplină si Timp total estimat')
-        data1 = read_csv("planinv.csv", encoding="ISO-8859-1")
+        _, res = DBX.files_download("/planinv.csv")
+
+        with BytesIO(res.content) as stream:
+                        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
+	#data1 = read_csv("planinv.csv", encoding="ISO-8859-1")
         #st.write(data1)
         
         data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
