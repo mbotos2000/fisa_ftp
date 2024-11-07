@@ -698,61 +698,49 @@ departamentele= {
   'Limbi straine':'Languages'}
 @st.cache_resource 
 def load_ftp_file():
+    # Establish FTP connection
     ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
-     
-    # force UTF-8 encoding
-    #ftp_server.encoding = "utf-8"
+    ftp_server.encoding = "utf-8"  # Force UTF-8 encoding
     ftp_server.cwd('./public_html')
- 
-    filename = "lista_cd.csv"    
-    with open(filename, "wb") as file:
-         #Command for Downloading the file "RETR filename"
-        ftp_server.retrbinary(f"RETR {filename}", file.write)
-    file= open(filename, "r")
-    
-    filename1 = "planinv.csv"
-     
-    with open(filename1, "wb") as file1:
-         #Command for Downloading the file "RETR filename"
-        ftp_server.retrbinary(f"RETR {filename1}", file1.write)
-    file1= open(filename1, "r")
 
-    filename = "baza.csv"    
-    with open(filename, "wb") as file_b:
-         #Command for Downloading the file "RETR filename"
-        ftp_server.retrbinary(f"RETR {filename}", file_b.write)
-    file_b= open(filename, "r")
-    
-    filename1 = "fisa_template_Mail_.docx"
-    fileMail_ = BytesIO()
-    ftp_server.retrbinary(f"RETR {filename1}", fileMail_.write)
-   
-    filename1 = "fisa_template_Mail_eng.docx"
-    fileMail_eng=BytesIO()
-    ftp_server.retrbinary(f"RETR {filename1}", fileMail_eng.write)
-    
-    filename2 = "fisa_template_Mail_curs_.docx"
-    fileMail_curs_=BytesIO()
-    ftp_server.retrbinary(f"RETR {filename2}", fileMail_curs_.write)
+    # Download CSV files
+    csv_data = {}
+    for filename in ["lista_cd.csv", "planinv.csv", "baza.csv"]:
+        with BytesIO() as file_data:
+            ftp_server.retrbinary(f"RETR {filename}", file_data.write)
+            file_data.seek(0)  # Reset file pointer to the start
+            csv_data[filename] = pd.read_csv(file_data, encoding="ISO-8859-1")
 
-   
-    
-    filename3 = "fisa_template_Mail_curs_eng.docx"
-    fileMail_curs_eng=BytesIO()
-    ftp_server.retrbinary(f"RETR {filename3}", fileMail_curs_eng.write)
-    
+    # Download DOCX templates
+    docx_files = {}
+    for filename in [
+        "fisa_template_Mail_.docx", 
+        "fisa_template_Mail_eng.docx", 
+        "fisa_template_Mail_curs_.docx",
+        "fisa_template_Mail_curs_eng.docx",
+        "fisa_template_Mail_aplicatie_.docx",
+        "fisa_template_Mail_aplicatie_eng.docx"
+    ]:
+        file_data = BytesIO()
+        ftp_server.retrbinary(f"RETR {filename}", file_data.write)
+        file_data.seek(0)  # Reset file pointer to the start
+        docx_files[filename] = file_data
 
-    filename4 = "fisa_template_Mail_aplicatie_.docx"
-    fileMail_aplicatie_= BytesIO()
-    ftp_server.retrbinary(f"RETR {filename4}", fileMail_aplicatie_.write)
-    
-    
-    filename5 = "fisa_template_Mail_aplicatie_eng.docx"
-    fileMail_aplicatie_eng= BytesIO()
-    ftp_server.retrbinary(f"RETR {filename5}", fileMail_aplicatie_eng.write)
-    #ftp_server.quit()
-    return pd.read_csv(file,encoding="ISO-8859-1"),pd.read_csv(file1,encoding="ISO-8859-1"),fileMail_,fileMail_eng,fileMail_curs_,fileMail_curs_eng,fileMail_aplicatie_,fileMail_aplicatie_eng,pd.read_csv(file_b,encoding="ISO-8859-1")
+    # Close FTP connection
+    ftp_server.quit()
 
+    # Return downloaded files
+    return (
+        csv_data["lista_cd.csv"], 
+        csv_data["planinv.csv"], 
+        docx_files["fisa_template_Mail_.docx"], 
+        docx_files["fisa_template_Mail_eng.docx"], 
+        docx_files["fisa_template_Mail_curs_.docx"], 
+        docx_files["fisa_template_Mail_curs_eng.docx"], 
+        docx_files["fisa_template_Mail_aplicatie_.docx"], 
+        docx_files["fisa_template_Mail_aplicatie_eng.docx"],
+        csv_data["baza.csv"]
+    )
 
            
 data,data1,_,_,_,_,_,_,_=load_ftp_file()
