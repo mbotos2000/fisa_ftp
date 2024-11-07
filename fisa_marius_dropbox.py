@@ -1496,7 +1496,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #st.write(st.session_state)
         file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-23.docx'
         #st.write(st.session_state['M_1_6'])
-       # try:
+        #try:
         current_datetime = datetime.now()    
         document.write(file_name)
         st.markdown(get_binary_file_downloader_html(file_name, 'Word document'), unsafe_allow_html=True)
