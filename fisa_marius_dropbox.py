@@ -1340,13 +1340,13 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
         #st.write(st.session_state)
         if (st.session_state['test_curs'])&(st.session_state['test_aplicatie']):
-            if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
+           if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
                 
                 #template= "fisa_template_Mail_.docx"
                 _, res = DBX.files_download("/fisa_template_Mail_.docx")
                 template = BytesIO(res.content)
 
-	    else:
+	   else:
                 #template= "fisa_template_Mail_eng.docx"
                 _, res = DBX.files_download("/fisa_template_Mail_eng.docx")
                 template = BytesIO(res.content)
