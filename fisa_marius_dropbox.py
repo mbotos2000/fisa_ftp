@@ -9,6 +9,7 @@ from docx2python import docx2python
 import os
 import base64
 import time
+import ftplib
 from mailmerge import MailMerge
 token=st.secrets['dbtoken']
 def clean_value(value):
@@ -677,7 +678,7 @@ directori = {
   'Constructii civile si management':'conf.dr.ing. Caludiu ACIU',
   'Structuri':'conf.dr.ing. Attila Puskas',
   'Masuratori terestre':'conf.dr.ing. Sanda NAS',
-  'Cai ferate, drumuri si poduri':'sl.dr.ing. Mihai Liviu DRAGOMIR',
+  'Cai ferate, drumuri si poduri':'conf.dr.ing. Mihai Liviu DRAGOMIR',
   'Matematica':'prof. dr. Vasile-Dorian Popa',
   'Fizica':'prof. dr. Petru Pascuta',
   'Limbi straine':'conf.dr. Ruxanda Literat'}
@@ -695,16 +696,37 @@ departamentele= {
   'Matematica':'Mathematics',
   'Fizica':'Physics',
   'Limbi straine':'Languages'}
+HOSTNAME = "users.utcluj.ro"
+USERNAME = "mbotos"
+PASSWORD = "MartaLiisa2001_"
+ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
+ 
+# force UTF-8 encoding
+ftp_server.encoding = "utf-8"
+ftp_server.cwd('./public_html')
+#DBX = dropbox.Dropbox(token)
+#_, res = DBX.files_download("/lista_cd.csv")
 
-DBX = dropbox.Dropbox(token)
-_, res = DBX.files_download("/lista_cd.csv")
+#with BytesIO(res.content) as stream:
+#        data = pd.read_csv(stream,encoding="ISO-8859-1")
+filename = "lista_cd.csv"
+ 
+with open(filename, "wb") as file:
+     #Command for Downloading the file "RETR filename"
+    ftp_server.retrbinary(f"RETR {filename}", file.write)
+file= open(filename, "r")
+data=pd.read_csv(file,encoding="ISO-8859-1")
 
-with BytesIO(res.content) as stream:
-        data = pd.read_csv(stream,encoding="ISO-8859-1")
-
-_, res = DBX.files_download("/planinv.csv")
-with BytesIO(res.content) as stream:
-        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
+#_, res = DBX.files_download("/planinv.csv")
+#with BytesIO(res.content) as stream:
+#        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
+filename1 = "planinv.csv"
+ 
+with open(filename1, "wb") as file:
+     #Command for Downloading the file "RETR filename"
+    ftp_server.retrbinary(f"RETR {filename1}", file1.write)
+file1= open(filename1, "r")
+data1=pd.read_csv(file1,encoding="ISO-8859-1")
 
 st.session_state['file'] = st.file_uploader("Incarca o fisa a disciplinei daca ea exista")
 if not(st.session_state['ut']):
@@ -815,9 +837,9 @@ if st.session_state['file']!=None or st.session_state['ut']:
         if submitted:
                 #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
                                
-                _, res = DBX.files_download("/planinv.csv")
-                with BytesIO(res.content) as stream:
-                        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
+                #_, res = DBX.files_download("/planinv.csv")
+                #with BytesIO(res.content) as stream:
+                        #data1 = pd.read_csv(stream,encoding="ISO-8859-1")
                 
                 data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
 
@@ -848,7 +870,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
                 #schimba_2_3(add_selectbox_TA)
                 #st.write(st.session_state['M_2_3_1'])
-                #st.session_state['M_2_4']=str(data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
+                st.session_state['M_2_4']=str(data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 #st.write("Anul in care e studiata disciplina aleasa: ",st.session_state['M_2_4'])
                 st.session_state['M_2_5']=str(data1['semestru'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 #st.write("Semestrul in care e studiata disciplina aleasa: ",st.session_state['M_2_5'])
@@ -1323,8 +1345,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
                 #template= "fisa_template_Mail_.docx"
                 _, res = DBX.files_download("/fisa_template_Mail_.docx")
                 template = BytesIO(res.content)
-                
-            else:
+
+	    else:
                 #template= "fisa_template_Mail_eng.docx"
                 _, res = DBX.files_download("/fisa_template_Mail_eng.docx")
                 template = BytesIO(res.content)
