@@ -728,11 +728,9 @@ def load_ftp_file():
     ftp_server.retrbinary(f"RETR {filename1}", fileMail_.write)
    
     filename1 = "fisa_template_Mail_eng.docx"
-     
     fileMail_eng=BytesIO()
     ftp_server.retrbinary(f"RETR {filename1}", fileMail_eng.write)
-    fileMail_eng= open(filename1, "r")
-
+    
     filename2 = "fisa_template_Mail_curs_.docx"
     fileMail_curs_=BytesIO()
     ftp_server.retrbinary(f"RETR {filename2}", fileMail_curs_.write)
