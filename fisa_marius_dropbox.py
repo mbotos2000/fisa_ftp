@@ -701,7 +701,7 @@ def load_ftp_file():
     ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
      
     # force UTF-8 encoding
-    ftp_server.encoding = "utf-8"
+    #ftp_server.encoding = "utf-8"
     ftp_server.cwd('./public_html')
  
     filename = "lista_cd.csv"    
