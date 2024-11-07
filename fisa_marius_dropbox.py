@@ -37,321 +37,321 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 def strip_last(x):
 	return x.strip()
 
-@st.cache_data
+
 def my_function(x):
   return list(dict.fromkeys(x))
 
-@st.cache_data
+
 def schimba_1_1(new):
     st.session_state['M_1_1'] = str(new)
-@st.cache_data
+
 def schimba_1_2(new):
     st.session_state['M_1_2'] = str(new)
-@st.cache_data
+
 def schimba_1_3(new):
     st.session_state['M_1_3'] = str(new)
-@st.cache_data
+
 def schimba_1_4(new):
     st.session_state['M_1_4'] = str(new)
-@st.cache_data
+
 def schimba_1_5(new):
     st.session_state['M_1_5'] = str(new)
-@st.cache_data
+
 def schimba_1_6(new):
     st.session_state['M_1_6'] = str(new)
-@st.cache_data
+
 def schimba_1_7(new):
     st.session_state['M_1_7'] = str(new)
-@st.cache_data
+
 def schimba_1_8(new):
     st.session_state['M_1_8'] = str(new)
-@st.cache_data
+
 def schimba_2_1(new):
     st.session_state['M_2_1'] = str(new)
-@st.cache_data
+
 def schimba_2_2(new):
     st.session_state['M_2_2'] = str(new)
-@st.cache_data
+
 def schimba_2_3(new):
     st.session_state['M_2_3'] = str(new)
-@st.cache_data
+
 def schimba_2_2_1(new):
     st.session_state['M_2_2_1'] = str(new)
-@st.cache_data
+
 def schimba_2_3_1(new):
     st.session_state['M_2_3_1'] = str(new)
-@st.cache_data
+
 def schimba_2_4(new):
     st.session_state['M_2_4'] = str(new)
-@st.cache_data
+
 def schimba_2_5(new):
     st.session_state['M_2_5'] = str(new)
-@st.cache_data
+
 def schimba_2_6(new):
     st.session_state['M_2_6'] = str(new)
-@st.cache_data
+
 def schimba_2_7_1(new):
     st.session_state['M_2_7_1'] = str(new)
-@st.cache_data
+
 def schimba_2_7_2(new):
     st.session_state['M_2_7_2'] = str(new)    
-@st.cache_data
+
 def schimba_M_3_1(new):
     st.session_state['M_3_1'] = str(new)
 
-@st.cache_data
+
 def schimba_M_3_2(new):
     st.session_state['M_3_2'] = str(new)
     st.session_state['test_curs']=True
 
-@st.cache_data
+
 def schimba_3_3_s(new):
     st.session_state['M_3_3_s'] = str(new) 
     st.session_state['test_aplicatie']=True
-@st.cache_data
+
 def schimba_3_3_l(new):
     st.session_state['M_3_3_l'] = str(new) 
     st.session_state['test_aplicatie']=True
-@st.cache_data
+
 def schimba_3_3_p(new):
     st.session_state['M_3_3_p'] = str(new) 
     st.session_state['test_aplicatie']=True
-@st.cache_data
+
 def schimba_M_3_4(new):
     st.session_state['M_3_4'] = str(new) 
 
-@st.cache_data
+
 def schimba_M_3_5(new):
     st.session_state['M_3_5'] = str(new)
     st.session_state['test_curs']=True
 
-@st.cache_data
+
 def schimba_3_6_s(new):
     st.session_state['M_3_6_s'] = str(new) 
     st.session_state['test_aplicatie']=True
-@st.cache_data
+
 def schimba_3_6_l(new):
     st.session_state['M_3_6_l'] = str(new) 
     st.session_state['test_aplicatie']=True
-@st.cache_data
+
 def schimba_3_6_p(new):
     st.session_state['M_3_6_p'] = str(new) 
     st.session_state['test_aplicatie']=True
-@st.cache_data
+
 def schimba_M_3_7_a(new):
     st.session_state['M_3_7_a'] = str(new)
     
-@st.cache_data
+
 def schimba_M_3_7_b(new):
     st.session_state['M_3_7_b'] = str(new)
 
-@st.cache_data
+
 def schimba_M_3_7_c(new):
     st.session_state['M_3_7_c'] = str(new) 
 
-@st.cache_data
+
 def schimba_M_3_7_d(new):
     st.session_state['M_3_7_d'] = str(new) 
 
-@st.cache_data
+
 def schimba_M_3_7_e(new):
     st.session_state['M_3_7_e'] = str(new)
 
-@st.cache_data
+
 def schimba_M_3_7_f(new):
     st.session_state['M_3_7_f'] = str(new)
 
-@st.cache_data
+
 def schimba_M_3_8(new):
     st.session_state['M_3_8'] = str(new)
 
-@st.cache_data
+
 def schimba_M_3_9(new):
     st.session_state['M_3_9'] = str(new)
-@st.cache_data
+
 def schimba_M_3_11(new):
     st.session_state['M_3_11'] = str(new)
-@st.cache_data
+
 def schimba_M_4_1(new):
     st.session_state['M_4_1'] = str(new)
-@st.cache_data
+
 def schimba_M_4_2(new):
     st.session_state['M_4_2'] = str(new)
-@st.cache_data
+
 def schimba_M_5_1(new):
     st.session_state['M_5_1'] = str(new)
-@st.cache_data
+
 def schimba_M_5_2(new):
     st.session_state['M_5_2'] = str(new)
-@st.cache_data
+
 def schimba_M_6_cp(new):
     st.session_state['M_6_cp'] = str(new)
-@st.cache_data
+
 def schimba_M_6_ct(new):
     st.session_state['M_6_ct'] = str(new)
-@st.cache_data
+
 def schimba_M_7_1(new):
     st.session_state['M_7_1'] = str(new)
-@st.cache_data
+
 def schimba_M_7_2(new):
     st.session_state['M_7_2'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_1(new):
     st.session_state['M_8_1_1'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_2(new):
     st.session_state['M_8_1_2'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_3(new):
     st.session_state['M_8_1_3'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_4(new):
     st.session_state['M_8_1_4'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_5(new):
     st.session_state['M_8_1_5'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_6(new):
     st.session_state['M_8_1_6'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_7(new):
     st.session_state['M_8_1_7'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_8(new):
     st.session_state['M_8_1_8'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_9(new):
     st.session_state['M_8_1_9'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_10(new):
     st.session_state['M_8_1_10'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_11(new):
     st.session_state['M_8_1_11'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_12(new):
     st.session_state['M_8_1_12'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_13(new):
     st.session_state['M_8_1_13'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_14(new):
     st.session_state['M_8_1_14'] = str(new)
-@st.cache_data
+
 def schimba_M_8_1_mp(new):
     st.session_state['M_8_1_mp'] = str(new)
-@st.cache_data
+
 def schimba_8_1_o(new):
     st.session_state['8_1_o'] = str(new)
-@st.cache_data
+
 def schimba_Biblio_c(new):
     st.session_state['Biblio_c'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_1(new):
     st.session_state['M_8_2_1'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_2(new):
     st.session_state['M_8_2_2'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_3(new):
     st.session_state['M_8_2_3'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_4(new):
     st.session_state['M_8_2_4'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_5(new):
     st.session_state['M_8_2_5'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_6(new):
     st.session_state['M_8_2_6'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_7(new):
     st.session_state['M_8_2_7'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_8(new):
     st.session_state['M_8_2_8'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_9(new):
     st.session_state['M_8_2_9'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_10(new):
     st.session_state['M_8_2_10'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_11(new):
     st.session_state['M_8_2_11'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_12(new):
     st.session_state['M_8_2_12'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_13(new):
     st.session_state['M_8_2_13'] = str(new)
-@st.cache_data
+
 def schimba_M_8_2_14(new):
     st.session_state['M_8_2_14'] = str(new)
-@st.cache_data
+
 def schimba_8_1_mp(new):
     st.session_state['8_1_mp'] = str(new)
-@st.cache_data
+
 def schimba_8_1_o(new):
     st.session_state['8_1_o'] = str(new)
-@st.cache_data
+
 def schimba_Biblio_a(new):
     st.session_state['Biblio_a'] = str(new)
-@st.cache_data
+
 def schimba_9(new):
     st.session_state['9'] = str(new)
-@st.cache_data
+
 def schimba_10_1_c(new):
     st.session_state['10_1_c'] = str(new)
-@st.cache_data
+
 def schimba_10_2_c(new):
     st.session_state['10_2_c'] = str(new)
-@st.cache_data
+
 def schimba_10_3_c(new):
     st.session_state['10_3_c'] = str(new)
-@st.cache_data
+
 def schimba_10_1_a(new):
     st.session_state['10_1_a'] = str(new)
-@st.cache_data
+
 def schimba_10_2_a(new):
     st.session_state['10_2_a'] = str(new)
-@st.cache_data
+
 def schimba_10_3_a(new):
     st.session_state['10_3_a'] = str(new)
-@st.cache_data
+
 def schimba_10_6(new):
     st.session_state['10_6'] = str(new)
-@st.cache_data
+
 def schimba_da_cu(new):
     st.session_state['da_cu'] = str(new)
-@st.cache_data
+
 def schimba_data_dep(new):
     st.session_state['data_dep'] = str(new)
-@st.cache_data
+
 def schimba_data_fac(new):
     st.session_state['data_fac'] = str(new)
-@st.cache_data
+
 def schimba_decan(new):
     st.session_state['decan'] = str(new)
-@st.cache_data
+
 def schimba_dir_dep(new):
     st.session_state['dir_dep'] = str(new)
-@st.cache_data
+
 def schimba_tip(new):
     st.session_state['tip'] = str(new)
-@st.cache_data
+
 def schimba_mail(new):
     st.session_state['mail'] = str(new)
-@st.cache_data
+
 def schimba_dep(new):
     st.session_state['dep'] = str(new)
-@st.cache_data
+
 def schimba_fac(new):
     st.session_state['fac'] = str(new)
-@st.cache_data
+
 def buton_t():
     st.session_state['ut'] = 1
-@st.cache_data
+
 def parcurge(aa,bb,cc,dd):
     output=''
     if len(doc_result.body[aa][bb][cc])!=0:
