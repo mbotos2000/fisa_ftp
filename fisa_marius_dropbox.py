@@ -753,7 +753,7 @@ def load_ftp_file():
     
     
     ftp_server.quit()
-    return pd.read_csv(file,encoding="ISO-8859-1"),pd.read_csv(file1,encoding="ISO-8859-1"),fileMail_,fileMail_eng,fileMail_curs_,fileMail_curs_eng,fileMail_aplicatie_,fileMail_aplicatie_eng,pd.read_csv(file_b,encoding="ISO-8859-1"),
+    return pd.read_csv(file,encoding="ISO-8859-1"),pd.read_csv(file1,encoding="ISO-8859-1"),fileMail_,fileMail_eng,fileMail_curs_,fileMail_curs_eng,fileMail_aplicatie_,fileMail_aplicatie_eng,pd.read_csv(file_b,encoding="ISO-8859-1")
 
 
            
