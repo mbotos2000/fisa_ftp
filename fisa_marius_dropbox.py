@@ -733,25 +733,25 @@ def load_ftp_file():
     ftp_server.retrbinary(f"RETR {filename1}", fileMail_eng.write)
     fileMail_eng= open(filename1, "r")
 
-    filename1 = "fisa_template_Mail_curs_.docx"
+    filename2 = "fisa_template_Mail_curs_.docx"
     fileMail_curs_=BytesIO()
-    ftp_server.retrbinary(f"RETR {filename1}", fileMail_curs_.write)
+    ftp_server.retrbinary(f"RETR {filename2}", fileMail_curs_.write)
 
    
     
-    filename1 = "fisa_template_Mail_curs_eng.docx"
+    filename3 = "fisa_template_Mail_curs_eng.docx"
     fileMail_curs_eng=BytesIO()
-    ftp_server.retrbinary(f"RETR {filename1}", fileMail_curs_eng.write)
+    ftp_server.retrbinary(f"RETR {filename3}", fileMail_curs_eng.write)
     
 
-    filename1 = "fisa_template_Mail_aplicatie_.docx"
+    filename4 = "fisa_template_Mail_aplicatie_.docx"
     fileMail_aplicatie_= BytesIO()
-    ftp_server.retrbinary(f"RETR {filename1}", fileMail_aplicatie_.write)
+    ftp_server.retrbinary(f"RETR {filename4}", fileMail_aplicatie_.write)
     
     
-    filename1 = "fisa_template_Mail_aplicatie_eng.docx"
+    filename5 = "fisa_template_Mail_aplicatie_eng.docx"
     fileMail_aplicatie_eng= BytesIO()
-    ftp_server.retrbinary(f"RETR {filename1}", fileMail_aplicatie_eng.write)
+    ftp_server.retrbinary(f"RETR {filename5}", fileMail_aplicatie_eng.write)
     
     
     ftp_server.quit()
