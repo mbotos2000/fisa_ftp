@@ -1113,14 +1113,14 @@ if st.session_state['file']!=None or st.session_state['ut']:
       #st.write(doc_result.body[15])
       if st.session_state['test_curs']:
           try:
-            c1=parcurge(15,1,0,0)
-	    st.text_area('Curs 1',value=c1,key='M_8_1_1')
+            
+	    st.text_area('Curs 1',value=parcurge(15,1,0,0),key='M_8_1_1')
           except:
             st.text_area('Curs 1',value='',key='M_8_1_1')
           	
           try:
-            c2=parcurge(15,2,0,0)
-	    st.text_area('Curs 2',value=c2,key='M_8_1_2')
+            
+	    st.text_area('Curs 2',value=parcurge(15,2,0,0),key='M_8_1_2')
           except:
             st.text_area('Curs 2',value='',key='M_8_1_2')
           
