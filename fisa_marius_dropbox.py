@@ -1515,11 +1515,17 @@ if st.session_state['file']!=None or st.session_state['ut']:
 """
         
         #file_path = 'baza.csv'
-        _,_,_,_,_,_,_,_,df=load_ftp_file()
-        new_row = {key: st.session_state.get(key, '') for key in st.session_state}
-        new_row_df = pd.DataFrame([new_row])
+        _, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
+
+	# Define the new row based on session state
+	new_row = {key: st.session_state.get(key, '') for key in st.session_state.keys()}
+
+	# Add the new row to `df` using pd.concat
+	new_row_df = pd.DataFrame([new_row])
 	df = pd.concat([df, new_row_df], ignore_index=True)
-        data_baza = df.to_csv(index=False)
+
+	# Convert the updated DataFrame to CSV format
+	data_baza = df.to_csv(index=False)
         def clear_cache():
             st.cache_data.clear()  # Clear @st.cache_data cache
             #st.cache_resource.clear()  # Clear @st.cache_resource cache
