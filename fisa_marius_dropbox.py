@@ -1345,7 +1345,6 @@ if st.session_state['file']!=None or st.session_state['ut']:
                 #template= "fisa_template_Mail_.docx"
                 _, res = DBX.files_download("/fisa_template_Mail_.docx")
                 template = BytesIO(res.content)
-
 	    else:
                 #template= "fisa_template_Mail_eng.docx"
                 _, res = DBX.files_download("/fisa_template_Mail_eng.docx")
