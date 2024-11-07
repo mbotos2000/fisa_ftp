@@ -11,10 +11,6 @@ import base64
 import time
 import ftplib
 from mailmerge import MailMerge
-def restart_app():
-    for key in st.session_state.keys():
-        del st.session_state[key]
-    st.experimental_rerun()
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
@@ -1509,14 +1505,9 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #os.startfile(file_name)
         def fix_encoding(text):
             return text.encode('latin1').decode('utf-8')
-        # Define the file path
-	st.title("App with Restart Button")
-	restart_button = st.form_submit_button("Incarca alta fisa")
-	if restart_button:
-	    restart_app()
-             
+              
         #file_path = 'baza.csv'
-	      """
+	"""
         _, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
 
 	# Define the new row based on session state
@@ -1549,7 +1540,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
             clear_resource(data_baza)
             st.success("Datele au fost scrise!")
             
-"""
+	"""
     
 
 
