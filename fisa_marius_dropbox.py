@@ -12,10 +12,6 @@ import time
 import ftplib
 from mailmerge import MailMerge
 
-HOSTNAME = "users.utcluj.ro"
-USERNAME = "mbotos"
-PASSWORD = "MartaLiisa2001_"
-token='dbtoken'
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
