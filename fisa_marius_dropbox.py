@@ -11,7 +11,10 @@ import base64
 import time
 import ftplib
 from mailmerge import MailMerge
-
+def restart_app():
+    for key in st.session_state.keys():
+        del st.session_state[key]
+    st.experimental_rerun()
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
