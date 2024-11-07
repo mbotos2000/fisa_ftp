@@ -698,10 +698,7 @@ departamentele= {
   'Limbi straine':'Languages'}
 @st.cache_resource 
 def load_ftp_file():
-    HOSTNAME = "users.utcluj.ro"
-    USERNAME = st.secrets['u']
-    PASSWORD = st.secrets['p']
-    ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
+    ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
      
     # force UTF-8 encoding
     ftp_server.encoding = "utf-8"
@@ -1546,10 +1543,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
             st.cache_data.clear()  # Clear @st.cache_data cache
             
             st.cache_resource.clear()  # Clear @st.cache_resource cache
-            HOSTNAME = "users.utcluj.ro"
-            USERNAME = st.secrets['u']
-            PASSWORD = st.secrets['p']
-            ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
+            ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
      
             # force UTF-8 encoding
             ftp_server.encoding = "utf-8"
