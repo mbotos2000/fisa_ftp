@@ -1114,14 +1114,16 @@ if st.session_state['file']!=None or st.session_state['ut']:
       if st.session_state['test_curs']:
           try:
             c1=parcurge(15,1,0,0)
+	    st.text_area('Curs 1',value=c1,key='M_8_1_1')
           except:
-            c1=''
-          st.text_area('Curs 1',value=c1,key='M_8_1_1')
+            st.text_area('Curs 1',value='',key='M_8_1_1')
+          	
           try:
             c2=parcurge(15,2,0,0)
+	    st.text_area('Curs 2',value=c2,key='M_8_1_2')
           except:
-            c2=''
-          st.text_area('Curs 2',value=c2,key='M_8_1_2')
+            st.text_area('Curs 2',value='',key='M_8_1_2')
+          
           try:
             c3=parcurge(15,3,0,0)
           except:
