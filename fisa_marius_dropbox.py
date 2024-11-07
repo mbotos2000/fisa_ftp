@@ -697,8 +697,8 @@ departamentele= {
   'Fizica':'Physics',
   'Limbi straine':'Languages'}
 HOSTNAME = "users.utcluj.ro"
-USERNAME = "mbotos"
-PASSWORD = "MartaLiisa2001_"
+USERNAME = st.secrets['u']
+PASSWORD = st.secrets['p']
 ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
  
 # force UTF-8 encoding
