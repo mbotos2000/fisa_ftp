@@ -1,6 +1,6 @@
+
 from __future__ import print_function
 from io import BytesIO
-import dropbox
 from datetime import *
 import streamlit as st
 import pandas as pd
@@ -11,7 +11,11 @@ import base64
 import time
 import ftplib
 from mailmerge import MailMerge
-token=st.secrets['dbtoken']
+
+HOSTNAME = "users.utcluj.ro"
+USERNAME = "mbotos"
+PASSWORD = "MartaLiisa2001_"
+token='dbtoken'
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
@@ -696,37 +700,73 @@ departamentele= {
   'Matematica':'Mathematics',
   'Fizica':'Physics',
   'Limbi straine':'Languages'}
-HOSTNAME = "users.utcluj.ro"
-USERNAME = st.secrets['u']
-PASSWORD = st.secrets['p']
-ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
+@st.cache_resource 
+def load_ftp_file():
+    HOSTNAME = "users.utcluj.ro"
+    #USERNAME = st.secrets['u']
+    #PASSWORD = st.secrets['p']
+    ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
+     
+    # force UTF-8 encoding
+    ftp_server.encoding = "utf-8"
+    ftp_server.cwd('./public_html')
  
-# force UTF-8 encoding
-ftp_server.encoding = "utf-8"
-ftp_server.cwd('./public_html')
-#DBX = dropbox.Dropbox(token)
-#_, res = DBX.files_download("/lista_cd.csv")
+    filename = "lista_cd.csv"    
+    with open(filename, "wb") as file:
+         #Command for Downloading the file "RETR filename"
+        ftp_server.retrbinary(f"RETR {filename}", file.write)
+    file= open(filename, "r")
+    
+    filename1 = "planinv.csv"
+     
+    with open(filename1, "wb") as file1:
+         #Command for Downloading the file "RETR filename"
+        ftp_server.retrbinary(f"RETR {filename1}", file1.write)
+    file1= open(filename1, "r")
 
-#with BytesIO(res.content) as stream:
-#        data = pd.read_csv(stream,encoding="ISO-8859-1")
-filename = "lista_cd.csv"
- 
-with open(filename, "wb") as file:
-     #Command for Downloading the file "RETR filename"
-    ftp_server.retrbinary(f"RETR {filename}", file.write)
-file= open(filename, "r")
-data=pd.read_csv(file,encoding="ISO-8859-1")
+    filename = "baza.csv"    
+    with open(filename, "wb") as file_b:
+         #Command for Downloading the file "RETR filename"
+        ftp_server.retrbinary(f"RETR {filename}", file_b.write)
+    file_b= open(filename, "r")
+    
+    filename1 = "fisa_template_Mail_.docx"
+    fileMail_ = BytesIO()
+    ftp_server.retrbinary(f"RETR {filename1}", fileMail_.write)
+   
+    filename1 = "fisa_template_Mail_eng.docx"
+     
+    fileMail_eng=BytesIO()
+    ftp_server.retrbinary(f"RETR {filename1}", fileMail_eng.write)
+    fileMail_eng= open(filename1, "r")
 
-#_, res = DBX.files_download("/planinv.csv")
-#with BytesIO(res.content) as stream:
-#        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
-filename1 = "planinv.csv"
- 
-with open(filename1, "wb") as file1:
-     #Command for Downloading the file "RETR filename"
-    ftp_server.retrbinary(f"RETR {filename1}", file1.write)
-file1= open(filename1, "r")
-data1=pd.read_csv(file1,encoding="ISO-8859-1")
+    filename1 = "fisa_template_Mail_curs_.docx"
+    fileMail_curs_=BytesIO()
+    ftp_server.retrbinary(f"RETR {filename1}", fileMail_curs_.write)
+
+   
+    
+    filename1 = "fisa_template_Mail_curs_eng.docx"
+    fileMail_curs_eng=BytesIO()
+    ftp_server.retrbinary(f"RETR {filename1}", fileMail_curs_eng.write)
+    
+
+    filename1 = "fisa_template_Mail_aplicatie_.docx"
+    fileMail_aplicatie_= BytesIO()
+    ftp_server.retrbinary(f"RETR {filename1}", fileMail_aplicatie_.write)
+    
+    
+    filename1 = "fisa_template_Mail_aplicatie_eng.docx"
+    fileMail_aplicatie_eng= BytesIO()
+    ftp_server.retrbinary(f"RETR {filename1}", fileMail_aplicatie_eng.write)
+    
+    
+    ftp_server.quit()
+    return pd.read_csv(file,encoding="ISO-8859-1"),pd.read_csv(file1,encoding="ISO-8859-1"),fileMail_,fileMail_eng,fileMail_curs_,fileMail_curs_eng,fileMail_aplicatie_,fileMail_aplicatie_eng,pd.read_csv(file_b,encoding="ISO-8859-1"),
+
+
+           
+data,data1,_,_,_,_,_,_,_=load_ftp_file()
 
 st.session_state['file'] = st.file_uploader("Incarca o fisa a disciplinei daca ea exista")
 if not(st.session_state['ut']):
@@ -816,7 +856,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         data1['specializare'] = data1['specializare'].apply(strip_last)
         st.write(st.session_state['M_1_6'])
         nume_di = data1['nume_disciplina'].loc[(data1['specializare']==st.session_state['M_1_6'])].drop_duplicates().tolist()
-        st.write(nume_di)
+        #st.write(nume_di)
         data1['ore_s']=14*data1['numarore'].astype(int)
  
         add_selectbox_D = st.selectbox(
@@ -870,7 +910,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
                 #schimba_2_3(add_selectbox_TA)
                 #st.write(st.session_state['M_2_3_1'])
-                st.session_state['M_2_4']=str(data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
+                #!!!!!!!!!!!!!!st.session_state['M_2_4']=str(data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 #st.write("Anul in care e studiata disciplina aleasa: ",st.session_state['M_2_4'])
                 st.session_state['M_2_5']=str(data1['semestru'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 #st.write("Semestrul in care e studiata disciplina aleasa: ",st.session_state['M_2_5'])
@@ -1343,34 +1383,40 @@ if st.session_state['file']!=None or st.session_state['ut']:
             if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
                 
                 #template= "fisa_template_Mail_.docx"
-                _, res = DBX.files_download("/fisa_template_Mail_.docx")
-                template = BytesIO(res.content)
-	    else:
+                #_, res = DBX.files_download("/fisa_template_Mail_.docx")
+                #template = BytesIO(res.content)
+                _,_,template,_,_,_,_,_,_=load_ftp_file()
+            else:
                 #template= "fisa_template_Mail_eng.docx"
-                _, res = DBX.files_download("/fisa_template_Mail_eng.docx")
-                template = BytesIO(res.content)
-                st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
+                #_, res = DBX.files_download("/fisa_template_Mail_eng.docx")
+                #template = BytesIO(res.content)
+                #st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
+                _,_,_,template,_,_,_,_,_=load_ftp_file()
         
         if (st.session_state['test_curs'])&(not(st.session_state['test_aplicatie'])):
             if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
                 #template= "fisa_template_Mail_curs_.docx"
                 _, res = DBX.files_download("/fisa_template_Mail_curs_.docx")
                 template = BytesIO(res.content)
+                _,_,_,_,template,_,_,_,_=load_ftp_file()
                 st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
             else:
                 #template= "fisa_template_Mail_curs_eng.docx"
-                _, res = DBX.files_download("/fisa_template_Mail_curs_eng.docx")
-                template = BytesIO(res.content)
+                #_, res = DBX.files_download("/fisa_template_Mail_curs_eng.docx")
+                #template = BytesIO(res.content)
+                _,_,_,_,_,template,_,_,_=load_ftp_file()
                 st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
         if (not(st.session_state['test_curs']))&(st.session_state['test_aplicatie']):
             if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
                 #template= "fisa_template_Mail_aplicatie_.docx"
-                _, res = DBX.files_download("/fisa_template_Mail_aplicatie_.docx")
-                template = BytesIO(res.content)
+                #_, res = DBX.files_download("/fisa_template_Mail_aplicatie_.docx")
+                #template = BytesIO(res.content)
+                _,_,_,_,_,_,template,_,_=load_ftp_file()
             else:
                 #template= "fisa_template_Mail_aplicatie_eng.docx"
-                _, res = DBX.files_download("/fisa_template_Mail_aplicatie_eng.docx")
-                template = BytesIO(res.content)
+                #_, res = DBX.files_download("/fisa_template_Mail_aplicatie_eng.docx")
+                #template = BytesIO(res.content)
+                _,_,_,_,_,_,_,template,_=load_ftp_file()
                 st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
 
 
@@ -1484,19 +1530,48 @@ if st.session_state['file']!=None or st.session_state['ut']:
         def fix_encoding(text):
             return text.encode('latin1').decode('utf-8')
         # Define the file path
+        """
         _, res = DBX.files_download("/baza.csv")
 
         with BytesIO(res.content) as stream:
                 df = pd.read_csv(stream,encoding="ISO-8859-1")
+"""
+        
         #file_path = 'baza.csv'
+        _,_,_,_,_,_,_,_,df=load_ftp_file()
         new_row = {key: st.session_state.get(key, '') for key in st.session_state}
         df = df.append(new_row, ignore_index=True)
-        data = df.to_csv(index=False)
-        with BytesIO(data.encode()) as stream:
-            stream.seek(0)
+        data_baza = df.to_csv(index=False)
 
-            DBX.files_upload(stream.read(), "/baza.csv", mode=dropbox.files.WriteMode.overwrite)
+        def clear_cache():
+            st.cache_data.clear()  # Clear @st.cache_data cache
+            #st.cache_resource.clear()  # Clear @st.cache_resource cache
+        def clear_resource(file):
+            st.cache_data.clear()  # Clear @st.cache_data cache
+            
+            st.cache_resource.clear()  # Clear @st.cache_resource cache
+            HOSTNAME = "users.utcluj.ro"
+            USERNAME = st.secrets['u']
+            PASSWORD = st.secrets['p']
+            ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
+     
+            # force UTF-8 encoding
+            ftp_server.encoding = "utf-8"
+            ftp_server.cwd('./public_html')
+            ftp_server.storbinary('STOR baza.csv', file)     # send the file
+            ftp_server.quit()
+        # Button to clear cache
+        clear_cache_button = st.form_submit_button("Incarca alta fisa")
+        clear_resource_button = st.form_submit_button("Scrie datele in baza")
+        if clear_cache_button:
+            clear_cache()
+            st.success("Cache cleared!")
+        if clear_resource_button:
+            clear_resource(data_baza)
+            st.success("Datele au fost scrise!")
+            
 
+    
 
 
 
