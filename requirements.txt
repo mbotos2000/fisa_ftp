@@ -1,7 +1,6 @@
 docx2python
 docx_mailmerge
 docx_mailmerge2
-dropbox
 pandas
 protobuf
 streamlit
