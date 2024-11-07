@@ -722,7 +722,7 @@ data=pd.read_csv(file,encoding="ISO-8859-1")
 #        data1 = pd.read_csv(stream,encoding="ISO-8859-1")
 filename1 = "planinv.csv"
  
-with open(filename1, "wb") as file:
+with open(filename1, "wb") as file1:
      #Command for Downloading the file "RETR filename"
     ftp_server.retrbinary(f"RETR {filename1}", file1.write)
 file1= open(filename1, "r")
