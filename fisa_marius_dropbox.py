@@ -1507,40 +1507,38 @@ if st.session_state['file']!=None or st.session_state['ut']:
             return text.encode('latin1').decode('utf-8')
               
         #file_path = 'baza.csv'
-	"""
-        _, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
+	
+        #_, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
 
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
-	new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
-	df = pd.concat([df, new_row_df], ignore_index=True)
+	#new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
+	#df = pd.concat([df, new_row_df], ignore_index=True)
 	# Convert the updated DataFrame to CSV format
-	data_baza = df.to_csv(index=False)
-        def clear_cache():
-            st.cache_data.clear()  # Clear @st.cache_data cache
+	#data_baza = df.to_csv(index=False)
+        #def clear_cache():
+        #    st.cache_data.clear()  # Clear @st.cache_data cache
             #st.cache_resource.clear()  # Clear @st.cache_resource cache
-        def clear_resource(file):
-            st.cache_data.clear()  # Clear @st.cache_data cache
+        #def clear_resource(file):
+        #    st.cache_data.clear()  # Clear @st.cache_data cache
             
-            st.cache_resource.clear()  # Clear @st.cache_resource cache
-            ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
+        #    st.cache_resource.clear()  # Clear @st.cache_resource cache
+        #    ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
      
             # force UTF-8 encoding
-            ftp_server.encoding = "utf-8"
-            ftp_server.cwd('./public_html')
-            ftp_server.storbinary('STOR baza.csv', file)     # send the file
-            ftp_server.quit()
+        #    ftp_server.encoding = "utf-8"
+        #    ftp_server.cwd('./public_html')
+         #   ftp_server.storbinary('STOR baza.csv', file)     # send the file
+         #   ftp_server.quit()
         # Button to clear cache
-        clear_cache_button = st.form_submit_button("Incarca alta fisa")
-        clear_resource_button = st.form_submit_button("Scrie datele in baza")
-        if clear_cache_button:
-            clear_cache()
-            st.success("Cache cleared!")
-        if clear_resource_button:
-            clear_resource(data_baza)
-            st.success("Datele au fost scrise!")
-            
-	"""
+        #clear_cache_button = st.form_submit_button("Incarca alta fisa")
+        #clear_resource_button = st.form_submit_button("Scrie datele in baza")
+        #if clear_cache_button:
+        #    clear_cache()
+         #   st.success("Cache cleared!")
+        #if clear_resource_button:
+        #    clear_resource(data_baza)
+        #    st.success("Datele au fost scrise!")
     
 
 
