@@ -699,8 +699,8 @@ departamentele= {
 @st.cache_resource 
 def load_ftp_file():
     HOSTNAME = "users.utcluj.ro"
-    #USERNAME = st.secrets['u']
-    #PASSWORD = st.secrets['p']
+    USERNAME = st.secrets['u']
+    PASSWORD = st.secrets['p']
     ftp_server = ftplib.FTP(HOSTNAME, USERNAME, PASSWORD)
      
     # force UTF-8 encoding
