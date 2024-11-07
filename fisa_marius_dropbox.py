@@ -750,10 +750,8 @@ def load_ftp_file():
     filename5 = "fisa_template_Mail_aplicatie_eng.docx"
     fileMail_aplicatie_eng= BytesIO()
     ftp_server.retrbinary(f"RETR {filename5}", fileMail_aplicatie_eng.write)
-    
-    
-    ftp_server.quit()
-    return pd.read_csv(file),pd.read_csv(file1),fileMail_,fileMail_eng,fileMail_curs_,fileMail_curs_eng,fileMail_aplicatie_,fileMail_aplicatie_eng,pd.read_csv(file_b)
+    #ftp_server.quit()
+    return pd.read_csv(file,encoding="ISO-8859-1"),pd.read_csv(file1,encoding="ISO-8859-1"),fileMail_,fileMail_eng,fileMail_curs_,fileMail_curs_eng,fileMail_aplicatie_,fileMail_aplicatie_eng,pd.read_csv(file_b,encoding="ISO-8859-1")
 
 
            
