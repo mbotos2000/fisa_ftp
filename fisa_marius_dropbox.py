@@ -1509,6 +1509,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         # Define the file path
              
         #file_path = 'baza.csv'
+	      """
         _, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
 
 	# Define the new row based on session state
@@ -1541,7 +1542,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
             clear_resource(data_baza)
             st.success("Datele au fost scrise!")
             
-
+"""
     
 
 
