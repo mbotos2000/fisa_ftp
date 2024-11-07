@@ -4,5 +4,4 @@ docx_mailmerge2
 dropbox
 pandas
 protobuf
-streamlit==1.29.0
-ftp
+streamlit
