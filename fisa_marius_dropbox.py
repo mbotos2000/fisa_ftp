@@ -11,7 +11,7 @@ import time
 import ftplib
 from mailmerge import MailMerge
 from difflib import get_close_matches
-st.set_page_config(page_title="Fisa disciplinei")
+
 def find_closest_match(word, word_list):
     closest_matches = get_close_matches(word, word_list, n=1, cutoff=0.6)
     return closest_matches[0] if closest_matches else ""
@@ -366,8 +366,7 @@ def parcurge(aa,bb,cc,dd):
                 else:    
                     output+=doc_result.body[aa][bb][cc][i]+'\n'
     return output[:len(output)-1]
-
-st.set_page_config(layout="wide", initial_sidebar_state="auto")
+st.set_page_config(page_title="Fisa disciplinei",layout="wide", initial_sidebar_state="auto")
 
 if 'FormSubmitter:Fisa disciplinei-Treceti la alegerea specializarii' not in st.session_state:
     st.session_state["FormSubmitter:Fisa disciplinei-Treceti la alegerea specializarii"]=''
