@@ -1333,10 +1333,10 @@ if st.session_state['file']!=None or st.session_state['ut']:
       text_st=st.text_area('10.6 Standard minim de performanţă',value=cst,key='M_10_6')
       #d_com=st.date_input("Data completarii",date.today())
       d_com='02.09.2022'
-      #d_dep=st.date_input("Data avizari in departament",date.today())
-      #d_fac=st.date_input("Data avizari in consiliul facultatii",date.today())
-      d_dep='04.09.2022'
-      d_fac='21.09.2022'
+      d_dep=st.date_input("Data avizari in departament",date.today())
+      d_fac=st.date_input("Data avizari in consiliul facultatii",date.today())
+      #d_dep='04.09.2022'
+      #d_fac='21.09.2022'
       submitted= st.form_submit_button("finalizeaza")
       if submitted:
         schimba_decan(decan[add_select])
