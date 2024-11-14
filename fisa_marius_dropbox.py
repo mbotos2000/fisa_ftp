@@ -851,8 +851,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
 					  help='Pot fi selectati mai multi titulari de curs.')
         add_selectbox_TA = st.multiselect('Titular aplicatii?',
 					  nume_tit,  
-					  #placeholder="De exemplu"+find_closest_match(doc_result.body[3][1][1], 
-					  nume_tit))
+					  #placeholder="De exemplu"+find_closest_match(doc_result.body[3][1][1], nume_tit)
+					 )
         submitted = st.form_submit_button("Treci la subcapitolul 3.7")
         if submitted:
                 #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
