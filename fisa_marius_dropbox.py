@@ -11,7 +11,7 @@ import time
 import ftplib
 from mailmerge import MailMerge
 from difflib import get_close_matches
-
+st.set_page_config(page_title="Fisa disciplinei")
 def find_closest_match(word, word_list):
     closest_matches = get_close_matches(word, word_list, n=1, cutoff=0.6)
     return closest_matches[0] if closest_matches else ""
