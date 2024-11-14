@@ -849,9 +849,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         nume_tit1=nume_tit
         #nume_tit=doc_result.body[3][1][1]+nume_tit
         add_selectbox_TC = st.multiselect(
-                'Titulari curs?', index=find_closest_match_index(doc_result.body[3][2][1], nume_tit),
-                nume_tit,
-                help='Pot fi selectati mai multi titulari de curs.')
+                'Titulari curs?', index=find_closest_match_index(doc_result.body[3][2][1], nume_tit),nume_tit,help='Pot fi selectati mai multi titulari de curs.')
         add_selectbox_TA = st.multiselect(
                 'Titular aplicatii?',index=find_closest_match_index(doc_result.body[3][1][1], nume_tit),
                 nume_tit)
