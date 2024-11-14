@@ -12,11 +12,9 @@ import ftplib
 from mailmerge import MailMerge
 from difflib import get_close_matches
 
-def find_closest_match_index(word, word_list):
+def find_closest_match(word, word_list):
     closest_matches = get_close_matches(word, word_list, n=1, cutoff=0.6)
-    if closest_matches:
-        return word_list.index(closest_matches[0])
-    return 0
+    return closest_matches[0] if closest_matches else ""
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
@@ -849,10 +847,10 @@ if st.session_state['file']!=None or st.session_state['ut']:
         nume_tit1=nume_tit
         #nume_tit=doc_result.body[3][1][1]+nume_tit
         add_selectbox_TC = st.multiselect('Titulari curs?',
-					  nume_tit, index=0,
+					  nume_tit, placeholder="De exemplu"+find_closest_match(doc_result.body[3][2][1], nume_tit),
 					  help='Pot fi selectati mai multi titulari de curs.')
         add_selectbox_TA = st.multiselect('Titular aplicatii?',
-					  nume_tit, index=0)
+					  nume_tit,  placeholder="De exemplu"+find_closest_match(doc_result.body[3][1][1], nume_tit))
         submitted = st.form_submit_button("Treci la subcapitolul 3.7")
         if submitted:
                 #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
