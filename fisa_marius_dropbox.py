@@ -747,7 +747,7 @@ def load_ftp_file():
            
 data,data1,_,_,_,_,_,_,_=load_ftp_file()
 
-st.session_state['file'] = st.file_uploader("Incarca o fisa a disciplinei daca ea exista")
+st.session_state['file'] = st.file_uploader("Incarca o fisa a disciplinei in format *docx")
 if not(st.session_state['ut']):
     if st.button('Nu am fisa de incarcat'):
         st.session_state['ut']=True
