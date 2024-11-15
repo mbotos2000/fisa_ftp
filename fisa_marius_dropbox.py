@@ -1521,7 +1521,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
         #st.dataframe(new_row_df)
         df = pd.concat([data2, new_row_df], ignore_index=True)
-	st.dataframe(df)      
+        st.dataframe(df)      
         file_buffer = BytesIO()
         
         df.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
