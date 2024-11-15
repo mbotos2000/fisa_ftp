@@ -1514,7 +1514,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
-	st.dataframe(new_row_df)
+        st.dataframe(new_row_df)
         df = pd.concat([df, new_row_df], ignore_index=True)
         file_buffer = BytesIO()
         
