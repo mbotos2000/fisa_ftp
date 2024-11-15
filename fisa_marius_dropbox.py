@@ -1515,7 +1515,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 	#Add the new row to `df` using pd.concat
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
         df = pd.concat([df, new_row_df], ignore_index=True)
-        st.write(df.head(5))
+        st.write(df.tail(5))
 	# Convert the updated DataFrame to CSV format
         data_baza = df.to_csv(index=False)
         def clear_cache():
