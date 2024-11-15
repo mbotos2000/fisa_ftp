@@ -1516,15 +1516,16 @@ if st.session_state['file']!=None or st.session_state['ut']:
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
         df = pd.concat([df, new_row_df], ignore_index=True)
         file_buffer = BytesIO()
+	st.write(df.head())
         df.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
         #st.write(df.tail(5))
         file_buffer.seek(0)  # Reset the buffer's position to the start
-        ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
-        ftp_server.encoding = "utf-8"
-        ftp_server.cwd('./public_html')
+        ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
+        ftp_server1.encoding = "utf-8"
+        ftp_server1.cwd('./public_html')
           #ftp_server.delete('baza.csv')
-        ftp_server.storbinary('STOR baza.csv', file_buffer)  # Send the file
-        ftp_server.quit()
+        ftp_server1.storbinary('STOR baza.csv', file_buffer)  # Send the file
+        ftp_server1.quit()
 	# Convert the updated DataFrame to CSV format
         #data_baza = df.to_csv(index=False)
         def clear_cache():
