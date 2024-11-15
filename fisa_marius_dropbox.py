@@ -1337,7 +1337,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         cst=''      
       text_st=st.text_area('10.6 Standard minim de performanţă',value=cst,key='M_10_6')
       #d_com=st.date_input("Data completarii",date.today())
-      d_com='02.09.2022'
+      d_com=date.today()
       d_dep=st.date_input("Data avizari in departament",date.today())
       d_fac=st.date_input("Data avizari in consiliul facultatii",date.today())
       #d_dep='04.09.2022'
@@ -1496,7 +1496,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         document.merge(M_2_3_1=st.session_state['M_2_3_1'])
         document.merge(M_3_11=st.session_state['M_3_11'])
         #st.write(st.session_state)
-        file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-23.docx'
+        file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.docx'
         #st.write(st.session_state['M_1_6'])
         #try:
         current_datetime = datetime.now()    
