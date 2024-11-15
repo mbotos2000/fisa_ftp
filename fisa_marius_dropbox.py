@@ -1510,7 +1510,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
               
         #file_path = 'baza.csv'
         _, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
-	df = pd.read_csv(df)
+        df = pd.read_csv(df)
         st.dataframe(df)
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
