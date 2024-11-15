@@ -1516,7 +1516,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
         df = pd.concat([df, new_row_df], ignore_index=True)
         file_buffer = BytesIO()
-        st.write(df.head(5))
+        st.write(df)
         df.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
         #st.write(df.tail(5))
         file_buffer.seek(0)  # Reset the buffer's position to the start
