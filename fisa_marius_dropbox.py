@@ -745,7 +745,7 @@ def load_ftp_file():
     )
 
            
-data,data1,_,_,_,_,_,_,_=load_ftp_file()
+data,data1,_,_,_,_,_,_,data2=load_ftp_file()
 
 st.session_state['file'] = st.file_uploader("Incarca o fisa a disciplinei in format *docx")
 if not(st.session_state['ut']):
@@ -1509,8 +1509,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
             return text.encode('latin1').decode('utf-8')
               
         #file_path = 'baza.csv'
-        _, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
-        df = pd.read_csv(df)
+        #_, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
+        df = data2
         st.dataframe(df)
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
