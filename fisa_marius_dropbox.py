@@ -1045,13 +1045,17 @@ if st.session_state['file']!=None or st.session_state['ut']:
     remaining_time = int(tosi - sum(st.session_state[key] for key in [
         'slide_37a', 'slide_37b', 'slide_37c', 'slide_37d', 'slide_37e', 'slide_37f'
     ]))
-    st.session_state['slide_37e'] = st.slider(
+    if remaining_time > 0:
+     st.session_state['slide_37e'] = st.slider(
         '(e) Examinări',
         min_value=0,
         max_value=remaining_time,
         value=st.session_state['slide_37e'],
         help='Completati de la a spre f. Suma orelor de studiu individual este blocata pe valoarea din planurile de invatamant'
-    )
+     )
+    else:
+        st.write('(e) Examinări: 0 ore')
+        st.session_state['slide_37e'] = 0
     remaining_time = int(tosi - sum(st.session_state[key] for key in [
         'slide_37a', 'slide_37b', 'slide_37c', 'slide_37d', 'slide_37e', 'slide_37f'
     ]))
