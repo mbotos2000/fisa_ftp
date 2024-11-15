@@ -1539,7 +1539,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #    clear_cache()
            st.success("Cache cleared!")
         if clear_resource_button:
-           clear_resource(data_baza)
+           clear_resource(df)
            st.success("Datele au fost scrise!")
     
 
