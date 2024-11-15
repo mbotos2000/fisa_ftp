@@ -1519,8 +1519,17 @@ if st.session_state['file']!=None or st.session_state['ut']:
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
+        new_row_df = new_row_df.fillna('')  # Replace with appropriate default values if needed
+        for col in new_row_df.columns:
+          if new_row_df[col].dtype == 'object':  # Convert object columns to strings
+            new_row_df[col] = new_row_df[col].astype(str)
+          elif new_row_df[col].dtype.name == 'category':  # Convert categories to strings
+            new_row_df[col] = new_row_df[col].astype(str)
         #st.dataframe(new_row_df)
         df = pd.concat([data2, new_row_df], ignore_index=True)
+        
+
+
         st.dataframe(df)      
         file_buffer = BytesIO()
         
