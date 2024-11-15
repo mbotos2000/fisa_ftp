@@ -1517,7 +1517,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         df = pd.concat([df, new_row_df], ignore_index=True)
         
 	# Convert the updated DataFrame to CSV format
-        data_baza = df.to_csv(index=False)
+        #data_baza = df.to_csv(index=False)
         def clear_cache():
           st.cache_data.clear()  # Clear @st.cache_data cache
           st.cache_resource.clear()  # Clear @st.cache_resource cache
