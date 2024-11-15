@@ -1516,7 +1516,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
         df = pd.concat([df, new_row_df], ignore_index=True)
         file_buffer = BytesIO()
-	st.write(df.head())
+        st.write(df.head(5))
         df.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
         #st.write(df.tail(5))
         file_buffer.seek(0)  # Reset the buffer's position to the start
@@ -1535,7 +1535,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
          
           file_buffer = BytesIO()
           file.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
-          st.write(file.tail(5))
+          
           file_buffer.seek(0)  # Reset the buffer's position to the start
           ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
           ftp_server.encoding = "utf-8"
