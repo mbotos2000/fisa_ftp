@@ -1066,7 +1066,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         c41=c41[:len(c41)-1]
       except:
         c41=''      
-      text_4_1=st.text_area('4.1 Preconditii din curriculul',value=c41,key='M_4_1')
+      text_4_1=st.text_area('4.1 Preconditii din curriculum',value=c41,key='M_4_1')
       try:
         #c42=doc_result.body[7][1][1][0]
         c42=parcurge(7,1,1,0)
