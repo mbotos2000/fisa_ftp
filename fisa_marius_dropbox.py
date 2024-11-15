@@ -1512,10 +1512,10 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #_, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
         df = data2
         st.dataframe(data2)
-	required_keys = data2.columns  # Use `data2` column names as expected keys
+        required_keys = data2.columns  # Use `data2` column names as expected keys
         for key in required_keys:
-           if key not in st.session_state:
-              st.session_state[key] = ''
+          if key not in st.session_state:
+           st.session_state[key] = ''
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
