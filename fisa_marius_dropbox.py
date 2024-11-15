@@ -1521,7 +1521,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         def clear_cache():
           st.cache_data.clear()  # Clear @st.cache_data cache
           st.cache_resource.clear()  # Clear @st.cache_resource cache
-       def clear_resource(file):
+        def clear_resource(file):
           st.cache_data.clear()
           st.cache_resource.clear()
           file_buffer = BytesIO()
