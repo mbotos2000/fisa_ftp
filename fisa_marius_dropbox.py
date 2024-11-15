@@ -1529,6 +1529,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
           ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
           ftp_server.encoding = "utf-8"
           ftp_server.cwd('./public_html')
+	  ftp_server.delete('baza.csv')
           ftp_server.storbinary('STOR baza.csv', file_buffer)  # Send the file
           ftp_server.quit()
           st.cache_data.clear()
