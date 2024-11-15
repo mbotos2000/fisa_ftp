@@ -1522,8 +1522,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
           st.cache_data.clear()  # Clear @st.cache_data cache
           st.cache_resource.clear()  # Clear @st.cache_resource cache
         def clear_resource(file):
-          st.cache_data.clear()
-          st.cache_resource.clear()
+         
           file_buffer = BytesIO()
           file.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
           file_buffer.seek(0)  # Reset the buffer's position to the start
@@ -1532,6 +1531,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
           ftp_server.cwd('./public_html')
           ftp_server.storbinary('STOR baza.csv', file_buffer)  # Send the file
           ftp_server.quit()
+          st.cache_data.clear()
+          st.cache_resource.clear()
         # Button to clear cache
         clear_cache_button = st.form_submit_button("Incarca alta fisa")
         clear_resource_button = st.form_submit_button("Scrie datele in baza")
