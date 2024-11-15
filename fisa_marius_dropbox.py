@@ -1533,8 +1533,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
           ftp_server.delete('baza.csv')
           ftp_server.storbinary('STOR baza.csv', file_buffer)  # Send the file
           ftp_server.quit()
-          st.cache_data.clear()
-          st.cache_resource.clear()
+          #st.cache_data.clear()
+          #st.cache_resource.clear()
         # Button to clear cache
         clear_cache_button = st.form_submit_button("Incarca alta fisa")
         clear_resource_button = st.form_submit_button("Scrie datele in baza")
