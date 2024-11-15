@@ -1510,7 +1510,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
               
         #file_path = 'baza.csv'
         _, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
-        st.write(df.tail(5))
+        
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
@@ -1525,6 +1525,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
          
           file_buffer = BytesIO()
           file.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
+          st.write(file.tail(5))
           file_buffer.seek(0)  # Reset the buffer's position to the start
           ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
           ftp_server.encoding = "utf-8"
