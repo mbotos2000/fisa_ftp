@@ -998,7 +998,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
     slide_37d=0
     slide_37e=0
     slide_37f=0
-    st.write('Distribuția fondului de timp:')
+    #st.write('Distribuția fondului de timp:')
     slide_37a=st.slider(
       '(a) Studiul după manual, suport de curs, bibliografie şi notițe',
       min_value=0, max_value=int(tosi-int(slide_37a)-int(slide_37b)-int(slide_37c)-int(slide_37d)-int(slide_37e)-int(slide_37f)),
@@ -1515,6 +1515,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 	#Add the new row to `df` using pd.concat
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
         df = pd.concat([df, new_row_df], ignore_index=True)
+	st.write(df.head(5))
 	# Convert the updated DataFrame to CSV format
         data_baza = df.to_csv(index=False)
         def clear_cache():
