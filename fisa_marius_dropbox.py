@@ -16,7 +16,7 @@ def find_closest_match_index(word, word_list):
     closest_matches = get_close_matches(word, word_list, n=1, cutoff=0.6)
     if closest_matches:
         return word_list.index(closest_matches[0])
-    return -1
+    #return -1
 	
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
