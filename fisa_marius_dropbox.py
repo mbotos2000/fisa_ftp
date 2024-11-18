@@ -373,73 +373,13 @@ st.set_page_config(page_title="Fisa disciplinei",layout="wide", initial_sidebar_
 
 if 'FormSubmitter:Fisa disciplinei-Treceti la alegerea specializarii' not in st.session_state:
     st.session_state["FormSubmitter:Fisa disciplinei-Treceti la alegerea specializarii"]=''
-if 'M_1_1' not in st.session_state:
-    st.session_state['M_1_1']='Universitatea Tehnica din Cluj Napoca'
-if 'M_1_2' not in st.session_state:
-    st.session_state['M_1_2']=''
-if 'M_1_3' not in st.session_state:
-    st.session_state['M_1_3']=''
-if 'M_1_4' not in st.session_state:
-    st.session_state['M_1_4']=''    
-if 'M_1_5' not in st.session_state:
-    st.session_state['M_1_5']=''                
-if 'M_1_6' not in st.session_state:
-    st.session_state['M_1_6']=''
 if 'M_1_7' not in st.session_state:
     st.session_state['M_1_7']='IF – învăţământ cu frecvenţă'
-if 'M_1_8' not in st.session_state:
-    st.session_state['M_1_8']=''
-if 'M_2_1' not in st.session_state:
-    st.session_state['M_2_1']=''
-if 'M_2_2' not in st.session_state:
-    st.session_state['M_2_2']=''
-if 'M_2_3' not in st.session_state:
-    st.session_state['M_2_3']=''
-if 'M_2_2_1' not in st.session_state:
-    st.session_state['M_2_2_1']=''
-if 'M_2_3_1' not in st.session_state:
-    st.session_state['M_2_3_1']=''
-if 'M_2_4' not in st.session_state:
-    st.session_state['M_2_4']=''
-if 'M_2_5' not in st.session_state:
-    st.session_state['M_2_5']=''
-if 'M_2_6' not in st.session_state:
-    st.session_state['M_2_6']=''
-if 'M_2_7_1' not in st.session_state:
-    st.session_state['M_2_7_1']=''
-if 'M_2_7_2' not in st.session_state:
-    st.session_state['M_2_7_2']=''
-if 'M_3_1' not in st.session_state:
-    st.session_state['M_3_1']='-'
-
-if 'M_3_2' not in st.session_state:
-    st.session_state['M_3_2']='-'
-    
- 
-if 'M_3_3_s' not in st.session_state:
-    st.session_state['M_3_3_s']='-'
- 
-if 'M_3_3_l' not in st.session_state:
-    st.session_state['M_3_3_l']='-'
-
-if 'M_3_3_p' not in st.session_state:
-    st.session_state['M_3_3_p']='-'
-
-if 'M_3_4' not in st.session_state:
-    st.session_state['M_3_4']='-'
-
-if 'M_3_5' not in st.session_state:
-    st.session_state['M_3_5']='-'
- 
-if 'M_3_6_s' not in st.session_state:
-    st.session_state['M_3_6_s']='-'
-
-if 'M_3_6_l' not in st.session_state:
-    st.session_state['M_3_6_l']='-'
-
-if 'M_3_6_p' not in st.session_state:
-    st.session_state['M_3_6_p']='-'
-
+if 'M_1_1' not in st.session_state:
+    st.session_state['M_1_1']='Universitatea Tehnica din Cluj Napoca'
+keys_dash=['M_3_1' ,'M_3_2' ,'M_3_3_s','M_3_3_l','M_3_3_p','M_3_4','M_3_5','M_3_6_s','M_3_6_l','M_3_6_p']
+for key in keys_dash:
+    st.session_state.setdefault(key, '-')
 if 'M_3_7_a' not in st.session_state:
     st.session_state['M_3_7_a']=0.0
 
@@ -457,144 +397,13 @@ if 'M_3_7_e' not in st.session_state:
  
 if 'M_3_7_f' not in st.session_state:
     st.session_state['M_3_7_f']=0.0
-
-if 'M_3_8' not in st.session_state:
-    st.session_state['M_3_8']=''
- 
-if 'M_3_9' not in st.session_state:
-    st.session_state['M_3_9']=''
-if 'M_3_11' not in st.session_state:
-    st.session_state['M_3_11']=''
-if 'M_4_1' not in st.session_state:
-    st.session_state['M_4_1']=''
-if 'M_4_2' not in st.session_state:
-    st.session_state['M_4_2']=''
-if 'M_5_1' not in st.session_state:
-    st.session_state['M_5_1']=''
-if 'M_5_2' not in st.session_state:
-    st.session_state['M_5_2']=''
-if 'M_6_cp' not in st.session_state:
-    st.session_state['M_6_cp']=''
-if 'M_6_ct' not in st.session_state:
-    st.session_state['M_6_ct']=''
-if 'M_7_1' not in st.session_state:
-    st.session_state['M_7_1']=''
-if 'M_7_2' not in st.session_state:
-    st.session_state['M_7_2']=''
-if 'M_8_1_1' not in st.session_state:
-    st.session_state['M_8_1_1']=''
-if 'M_8_1_2' not in st.session_state:
-    st.session_state['M_8_1_2']=''
-if 'M_8_1_3' not in st.session_state:
-    st.session_state['M_8_1_3']=''
-if 'M_8_1_4' not in st.session_state:
-    st.session_state['M_8_1_4']=''
-if 'M_8_1_5' not in st.session_state:
-    st.session_state['M_8_1_5']=''
-if 'M_8_1_6' not in st.session_state:
-    st.session_state['M_8_1_6']=''
-if 'M_8_1_7' not in st.session_state:
-    st.session_state['M_8_1_7']=''
-if 'M_8_1_8' not in st.session_state:
-    st.session_state['M_8_1_8']=''
-if 'M_8_1_9' not in st.session_state:
-    st.session_state['M_8_1_9']=''
-if 'M_8_1_10' not in st.session_state:
-    st.session_state['M_8_1_10']=''
-if 'M_8_1_11' not in st.session_state:
-    st.session_state['M_8_1_11']=''
-    
-if 'M_8_1_12' not in st.session_state:
-    st.session_state['M_8_1_12']=''
-if 'M_8_1_13' not in st.session_state:
-    st.session_state['M_8_1_13']=''
-if 'M_8_1_14' not in st.session_state:
-    st.session_state['M_8_1_14']=''
-if 'M_8_1_mp' not in st.session_state:
-    st.session_state['M_8_1_mp']=''
-if '8_1_o' not in st.session_state:
-    st.session_state['8_1_o']=''
-if 'Biblio_c' not in st.session_state:
-    st.session_state['Biblio_c']=''
-if '' not in st.session_state:
-    st.session_state['']=''
-if 'M_8_2_1' not in st.session_state:
-    st.session_state['M_8_2_1']=''
-if 'M_8_2_2' not in st.session_state:
-    st.session_state['M_8_2_2']=''
-if 'M_8_2_3' not in st.session_state:
-    st.session_state['M_8_2_3']=''
-if 'M_8_2_4' not in st.session_state:
-    st.session_state['M_8_2_4']=''
-if 'M_8_2_5' not in st.session_state:
-    st.session_state['M_8_2_5']=''
-if 'M_8_2_6' not in st.session_state:
-    st.session_state['M_8_2_6']=''
-if 'M_8_2_7' not in st.session_state:
-    st.session_state['M_8_2_7']=''
-if 'M_8_2_8' not in st.session_state:
-    st.session_state['M_8_2_8']=''
-if 'M_8_2_9' not in st.session_state:
-    st.session_state['M_8_2_9']=''
-if 'M_8_2_10' not in st.session_state:
-    st.session_state['M_8_2_10']=''
-if 'M_8_2_11' not in st.session_state:
-    st.session_state['M_8_2_11']=''
-if 'M_8_2_12' not in st.session_state:
-    st.session_state['M_8_2_12']=''
-if 'M_8_2_13' not in st.session_state:
-    st.session_state['M_8_2_13']=''
-if 'M_8_2_14' not in st.session_state:
-    st.session_state['M_8_2_14']=''
-if '8_1_mp' not in st.session_state:
-    st.session_state['8_1_mp']=''
-if '8_1_o' not in st.session_state:
-    st.session_state['8_1_o']=''
-if 'Biblio_a' not in st.session_state:
-    st.session_state['Biblio_a']=''
-if '9' not in st.session_state:
-    st.session_state['9']=''
-if '10_1_c' not in st.session_state:
-    st.session_state['10_1_c']=''
-if '10_2_c' not in st.session_state:
-    st.session_state['10_2_c']=''
-if '10_3_c' not in st.session_state:
-    st.session_state['10_3_c']=''
-if '10_1_a' not in st.session_state:
-    st.session_state['10_1_a']=''
-if '10_2_a' not in st.session_state:
-    st.session_state['10_2_a']=''
-if '10_3_a' not in st.session_state:
-    st.session_state['10_3_a']=''
-if '10_6' not in st.session_state:
-    st.session_state['10_6']=''
-if 'da_cu' not in st.session_state:
-    st.session_state['da_cu']=''
-if 'data_dep' not in st.session_state:
-    st.session_state['data_dep']=''
-if 'data_fac' not in st.session_state:
-    st.session_state['data_fac']=''
 if 'decan' not in st.session_state:
     st.session_state['decan']='prof.dr.ing Daniela Manea'
-if 'dir_dep' not in st.session_state:
-    st.session_state['dir_dep']=''
-if 'tip' not in st.session_state:
-    st.session_state['tip']=''
-if 'mail' not in st.session_state:
-    st.session_state['mail']=''
-if 'dep' not in st.session_state:
-    st.session_state['dep']=''
+if '' not in st.session_state:
+    st.session_state[]=''
 if 'fac' not in st.session_state:
     st.session_state['fac']='Constructii'
-if 'cap2' not in st.session_state:
-    st.session_state['cap2']=None
 
-if 'cap3' not in st.session_state:
-    st.session_state['cap3']=None
-if 'cap4' not in st.session_state:
-    st.session_state['cap4']=None
-if 'resetare' not in st.session_state:
-    st.session_state['resetare']=None
 
 if 'test_curs' not in st.session_state:
     st.session_state['test_curs']=False
@@ -603,19 +412,16 @@ if 'test_aplicatie' not in st.session_state:
 if 'ut' not in st.session_state:
     st.session_state['ut']=False
 
-if 'file' not in st.session_state:
-    st.session_state['file']=None
-
-if 'M_8_1_o1' not in st.session_state:
-    st.session_state['M_8_1_o1']=None
- 
-if 'M_8_1_mp1' not in st.session_state:
-    st.session_state['M_8_1_mp1']=None
-if 'M_8_1_o' not in st.session_state:
-    st.session_state['M_8_1_o']=None
- 
-if 'M_8_1_mp' not in st.session_state:
-    st.session_state['M_8_1_mp']=None
+keys_none=['cap2','cap3','cap4','resetare' ,'file','M_8_1_o1','M_8_1_mp1','M_8_1_o','M_8_1_mp']
+for key in keys_none:
+    st.session_state.setdefault(key, None)
+keys_space=['','M_1_2','M_1_3','M_1_4','M_1_5','M_1_6','M_1_8','M_2_1','M_2_2','M_2_3','M_2_2_1','M_2_3_1','M_2_4','M_2_5','M_2_6','M_2_7_1','M_2_7_2',
+	    'M_3_8','M_3_9','M_3_11','M_4_1','M_4_2','M_5_1','M_5_2', 'M_6_cp','M_6_ct','M_7_1','M_7_2','M_8_1_1','M_8_1_2','M_8_1_3','M_8_1_4','M_8_1_5',
+	    'M_8_1_6', 'M_8_1_7','M_8_1_8', 'M_8_1_9','M_8_1_10','M_8_1_11','M_8_1_12','M_8_1_13','M_8_1_14','M_8_1_mp','8_1_o','Biblio_c','M_8_2_1',
+	    'M_8_2_2','M_8_2_3','M_8_2_4','M_8_2_5','M_8_2_6','M_8_2_7','M_8_2_8','M_8_2_9','M_8_2_10','M_8_2_11','M_8_2_12','M_8_2_13','M_8_2_14',
+	    '8_1_mp','8_1_o','Biblio_a','9','10_1_c','10_2_c','10_3_c','10_1_a','10_2_a','10_3_a','10_6','da_cu','data_dep','data_fac','dir_dep','tip','mail','dep']
+for key in keys_space:
+    st.session_state.setdefault(key, '')
 ver={
     'examen':'E',
     'verificare':'V',
