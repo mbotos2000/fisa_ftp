@@ -12,9 +12,11 @@ import ftplib
 from mailmerge import MailMerge
 from difflib import get_close_matches
 
-def find_closest_match(word, word_list):
+def find_closest_match_index(word, word_list):
     closest_matches = get_close_matches(word, word_list, n=1, cutoff=0.6)
-    return closest_matches[0].index if closest_matches else 0
+    if closest_matches:
+        return word_list.index(closest_matches[0])
+    return 0
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
@@ -789,7 +791,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
     lista_d=['Mecanica constructiilor', 'Constructii civile si management', 'Structuri', 'Masuratori terestre', 'Cai ferate, drumuri si poduri','Matematica','Fizica','Limbi straine']
 
     lista_d=my_function(lista_d)
-    add_selectbox_DP = st.selectbox('Departamentul?',(lista_d))
+    add_selectbox_DP = st.selectbox('Departamentul?',(lista_d),index=find_closest_match_index(doc_result.body[1][2][1], lista_d))
     #add_selectbox_dom = st.selectbox(
     #        'Domeniul de studii?',
     #        ('Inginerie civila', 'Inginerie si management', 'Inginerie geodezica'),key='M_1_4'
@@ -814,9 +816,9 @@ if st.session_state['file']!=None or st.session_state['ut']:
      
   if st.session_state['cap2']!=None:
     with st.form('Alege specializarea:'):
-        st.write(doc_result.body[1][2][1])
+        st.write(doc_result.body[1][5][1])
         add_selectbox_SP = st.selectbox(
-          'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6',index=find_closest_match(doc_result.body[1][2][1], specializari[st.session_state['M_1_5']]))
+          'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6',index=find_closest_match_index(doc_result.body[1][5][1], specializari[st.session_state['M_1_5']]))
         submitted = st.form_submit_button("Treceti la capitolul 2-3")
         if submitted:
             st.session_state['M_1_4']=domeniu[add_selectbox_SP]
