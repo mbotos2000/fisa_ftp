@@ -791,7 +791,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
     lista_d=['Mecanica constructiilor', 'Constructii civile si management', 'Structuri', 'Masuratori terestre', 'Cai ferate, drumuri si poduri','Matematica','Fizica','Limbi straine']
 
     lista_d=my_function(lista_d)
-    st.write(doc_result.body[1][2][1])
+    st.write(lista_d)
     st.write(find_closest_match_index(doc_result.body[1][2][1], lista_d))
     add_selectbox_DP = st.selectbox('Departamentul?',(lista_d),index=find_closest_match_index(doc_result.body[1][2][1], lista_d))
     #add_selectbox_dom = st.selectbox(
