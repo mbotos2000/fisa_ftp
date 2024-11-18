@@ -399,8 +399,7 @@ if 'M_3_7_f' not in st.session_state:
     st.session_state['M_3_7_f']=0.0
 if 'decan' not in st.session_state:
     st.session_state['decan']='prof.dr.ing Daniela Manea'
-if '' not in st.session_state:
-    st.session_state[]=''
+
 if 'fac' not in st.session_state:
     st.session_state['fac']='Constructii'
 
