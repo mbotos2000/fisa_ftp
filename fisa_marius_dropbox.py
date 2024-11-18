@@ -14,7 +14,7 @@ from difflib import get_close_matches
 
 def find_closest_match(word, word_list):
     closest_matches = get_close_matches(word, word_list, n=1, cutoff=0.6)
-    return closest_matches[0] if closest_matches else ""
+    return closest_matches[0].index if closest_matches else 0
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
@@ -814,8 +814,9 @@ if st.session_state['file']!=None or st.session_state['ut']:
      
   if st.session_state['cap2']!=None:
     with st.form('Alege specializarea:'):
+        st.write(doc_result.body[2][1][1])
         add_selectbox_SP = st.selectbox(
-          'Programul de studii?',
+          'Programul de studii?',index=find_closest_match(word, specializari[st.session_state['M_1_5']])
           my_function(specializari[st.session_state['M_1_5']]),key='M_1_6')
         submitted = st.form_submit_button("Treceti la capitolul 2-3")
         if submitted:
