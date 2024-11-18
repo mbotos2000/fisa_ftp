@@ -13,15 +13,11 @@ from mailmerge import MailMerge
 from difflib import get_close_matches
 
 def find_closest_match_index(word, word_list):
-    # Normalize to lowercase for case-insensitive matching
-    word = word.lower()
-    word_list_normalized = [w.lower() for w in word_list]
-
-    closest_matches = get_close_matches(word, word_list_normalized, n=1, cutoff=0.5)
+    closest_matches = get_close_matches(word, word_list, n=1, cutoff=0.6)
     if closest_matches:
-        # Find the index in the original list
-        return word_list_normalized.index(closest_matches[0])
-    return -1  # Return -1 to indicate no match found
+        return word_list.index(closest_matches[0])
+    return -1
+	
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
         return ''
