@@ -816,8 +816,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
     with st.form('Alege specializarea:'):
         st.write(doc_result.body[1][2][1])
         add_selectbox_SP = st.selectbox(
-          'Programul de studii?',index=find_closest_match(doc_result.body[1][2][1], specializari[st.session_state['M_1_5']]),
-          my_function(specializari[st.session_state['M_1_5']]),key='M_1_6')
+          'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6',index=find_closest_match(doc_result.body[1][2][1], specializari[st.session_state['M_1_5']]))
         submitted = st.form_submit_button("Treceti la capitolul 2-3")
         if submitted:
             st.session_state['M_1_4']=domeniu[add_selectbox_SP]
