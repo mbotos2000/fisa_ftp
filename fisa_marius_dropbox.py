@@ -12,11 +12,19 @@ import ftplib
 from mailmerge import MailMerge
 from difflib import get_close_matches
 
-def find_closest_match_index(word, word_list):
-    closest_matches = get_close_matches(word, word_list)
+import string
+
+def preprocess(text):
+    return text.strip().lower().translate(str.maketrans('', '', string.punctuation))
+
+def find_closest_match_index(word, word_list, cutoff=0.6):
+    word = preprocess(word)
+    word_list = [preprocess(w) for w in word_list]
+    
+    closest_matches = get_close_matches(word, word_list, n=1, cutoff=cutoff)
     if closest_matches:
         return word_list.index(closest_matches[0])
-    #return -1
+    return 0
 	
 def clean_value(value):
     if pd.isna(value):  # Replaces NaN or None with an empty string
