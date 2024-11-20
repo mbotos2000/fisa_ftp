@@ -1190,7 +1190,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
                        'M_7_1','fac','M_3_7_f','M_2_5','M_8_1_8','M_3_7_b','M_3_7_a','M_2_2','M_5_2','M_8_1_4','M_2_7_1','M_8_1_7','M_8_2_3','M_3_7_d','M_8_2_12',
                        'M_3_9','M_3_7_c','M_6_ct','M_8_1_2','M_8_1_3','dep','M_3_6_p','M_10_1_a','M_2_4','M_2_6','Biblio_a','data_fac','M_8_1_o','M_1_6','M_3_1','M_6_cp',
                        'M_3_6_s','M_1_4','M_5_1','M_8_1_6','M_8_2_4','M_8_2_13','M_8_2_10','M_2_7_2','M_8_1_9','M_1_3','M_1_5','M_8_1_11','M_10_1_c','M_3_8','M_2_3_1','M_3_11']
-	for key in keys_to_merge:
+        for key in keys_to_merge:
           if key in st.session_state:
              document.merge(**{key: st.session_state[key]})
         file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.docx'
