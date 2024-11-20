@@ -14,7 +14,6 @@ from difflib import get_close_matches
 
 def find_closest_match_index(word, word_list):
     closest_matches = get_close_matches(word, word_list)
-    st.write(closest_matches)
     if closest_matches:
         return word_list.index(closest_matches[0])
     #return -1
