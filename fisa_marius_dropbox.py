@@ -44,10 +44,8 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 def strip_last(x):
 	return x.strip()
 
-
 def my_function(x):
   return list(dict.fromkeys(x))
-
 
 def schimba_1_1(new):
     st.session_state['M_1_1'] = str(new)
@@ -106,11 +104,9 @@ def schimba_2_7_2(new):
 def schimba_M_3_1(new):
     st.session_state['M_3_1'] = str(new)
 
-
 def schimba_M_3_2(new):
     st.session_state['M_3_2'] = str(new)
     st.session_state['test_curs']=True
-
 
 def schimba_3_3_s(new):
     st.session_state['M_3_3_s'] = str(new) 
@@ -126,7 +122,6 @@ def schimba_3_3_p(new):
 
 def schimba_M_3_4(new):
     st.session_state['M_3_4'] = str(new) 
-
 
 def schimba_M_3_5(new):
     st.session_state['M_3_5'] = str(new)
@@ -147,31 +142,24 @@ def schimba_3_6_p(new):
 
 def schimba_M_3_7_a(new):
     st.session_state['M_3_7_a'] = str(new)
-    
 
 def schimba_M_3_7_b(new):
     st.session_state['M_3_7_b'] = str(new)
 
-
 def schimba_M_3_7_c(new):
     st.session_state['M_3_7_c'] = str(new) 
-
 
 def schimba_M_3_7_d(new):
     st.session_state['M_3_7_d'] = str(new) 
 
-
 def schimba_M_3_7_e(new):
     st.session_state['M_3_7_e'] = str(new)
-
 
 def schimba_M_3_7_f(new):
     st.session_state['M_3_7_f'] = str(new)
 
-
 def schimba_M_3_8(new):
     st.session_state['M_3_8'] = str(new)
-
 
 def schimba_M_3_9(new):
     st.session_state['M_3_9'] = str(new)
@@ -403,7 +391,6 @@ if 'decan' not in st.session_state:
 if 'fac' not in st.session_state:
     st.session_state['fac']='Constructii'
 
-
 if 'test_curs' not in st.session_state:
     st.session_state['test_curs']=False
 if 'test_aplicatie' not in st.session_state:
@@ -551,7 +538,6 @@ def load_ftp_file():
         docx_files["fisa_template_Mail_aplicatie_eng.docx"],
         csv_data["baza.csv"]
     )
-
            
 data,data1,_,_,_,_,_,_,data2=load_ftp_file()
 
@@ -562,14 +548,11 @@ if not(st.session_state['ut']):
 if st.session_state['file']!=None or st.session_state['ut']:
   if st.session_state['file']!=None: 
       doc_result = docx2python(st.session_state['file'])
-  
-
-  
+    
   nume_tit = data['nume'].tolist()
 
   st.title("Fisa disciplinei")
   st.write('{:%d-%b-%Y}'.format(date.today()))
-
 
   with st.form('Fisa disciplinei pentru Facultatea de constructii'):
     st.header('Capitolul 1: Date despre program')
@@ -591,8 +574,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
             'Ciclul de studii?',
             (lista_ci),key='M_1_5'
         )
-    
-    
+        
     #lista_d=doc_result.body[1][2][1]+['Mecanica constructiilor', 'Constructii civile si management', 'Structuri', 'Masuratori terestre', 'Cai ferate, drumuri si poduri']
     lista_d=['Mecanica constructiilor', 'Constructii civile si management', 'Structuri', 'Masuratori terestre', 'Cai ferate, drumuri si poduri','Matematica','Fizica','Limbi straine']
     lista_dd=lista_d
@@ -620,7 +602,6 @@ if st.session_state['file']!=None or st.session_state['ut']:
       #schimba_dep(add_selectbox_DP)
       schimba_1_7('IF – învăţământ cu frecvenţă')
       st.session_state['cap2']='1'
-
      
   if st.session_state['cap2']!=None:
     with st.form('Alege specializarea:'):
@@ -632,20 +613,13 @@ if st.session_state['file']!=None or st.session_state['ut']:
             st.session_state['M_1_4']=domeniu[add_selectbox_SP]
             st.session_state['cap2']='2'
   if st.session_state['cap2']=='2':
-    with st.form('capitolul 2 si 3'):
-
-        #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
-        
+    with st.form('capitolul 2 si 3'):        
         st.header('Capitolul 2 si 3:Date despre disciplină si Timp total estimat')
-
-	#data1 = read_csv("planinv.csv", encoding="ISO-8859-1")
-        #st.write(data1)
         
         data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
         data1['specializare'] = data1['specializare'].apply(strip_last)
         st.write(st.session_state['M_1_6'])
         nume_di = data1['nume_disciplina'].loc[(data1['specializare']==st.session_state['M_1_6'])].drop_duplicates().tolist()
-        #st.write(nume_di)
         data1['ore_s']=14*data1['numarore'].astype(int)
  
         add_selectbox_D = st.selectbox(
@@ -665,11 +639,6 @@ if st.session_state['file']!=None or st.session_state['ut']:
 					 )
         submitted = st.form_submit_button("Treci la subcapitolul 3.7")
         if submitted:
-                #data = read_csv("lista_cd.csv", encoding="ISO-8859-1")
-                               
-                #_, res = DBX.files_download("/planinv.csv")
-                #with BytesIO(res.content) as stream:
-                        #data1 = pd.read_csv(stream,encoding="ISO-8859-1")
                 
                 data1['nume_disciplina'] = data1['nume_disciplina'].apply(strip_last)
 
@@ -719,7 +688,6 @@ if st.session_state['file']!=None or st.session_state['ut']:
                 except:
                     pass
                 schimba_mail('')
-
 
                 try:
                     st.session_state['M_3_1']=str(int(data1['numarore'].loc[(data1['specializare']==st.session_state['M_1_6'])&(data1['nume_disciplina']==st.session_state['M_2_1'])&(data1['curs']=='CURS      ')].values[0]+data1['numarore'].loc[(data1['nume_disciplina']==add_selectbox_D)&(data1['curs']!='CURS      ')].values[0]))
@@ -775,8 +743,6 @@ if st.session_state['file']!=None or st.session_state['ut']:
                         #schimba_3_6_p(14*data1['numarore'].loc[(data1['specializare']==st.session_state['M_1_6'])&(data1['nume_disciplina']==st.session_state['M_2_1'])&(data1['curs']!='CURS      ')].values[0])
                         st.session_state['M_3_3_p']=str(data1['numarore'].loc[(data1['specializare']==st.session_state['M_1_6'])&(data1['nume_disciplina']==st.session_state['M_2_1'])&(data1['curs']!='CURS      ')].values[0])
                         st.session_state['M_3_6_p']=str(14*data1['numarore'].loc[(data1['specializare']==st.session_state['M_1_6'])&(data1['nume_disciplina']==st.session_state['M_2_1'])&(data1['curs']!='CURS      ')].values[0])
- 
-                        #st.write('Am gasit proiect')
                         st.session_state['test_aplicatie']=True
                 except:
                     pass
@@ -794,27 +760,18 @@ if st.session_state['file']!=None or st.session_state['ut']:
                     pass
                 st.session_state['cap3']='1'
  
-
   if 'cap3' in st.session_state and st.session_state['cap3'] is not None:
     st.write('Distribuția fondului de timp (ore pe semestru)')
-
-    # Ensure tosi is available
     tosi = data1['orestud'].loc[
         (data1['specializare'] == st.session_state['M_1_6']) &
         (data1['nume_disciplina'] == st.session_state['M_2_1'])
     ].values[0]
-
-    # Initialize sliders in session state if not already set
     for key in ['slide_37a', 'slide_37b', 'slide_37c', 'slide_37d', 'slide_37e', 'slide_37f']:
         if key not in st.session_state:
             st.session_state[key] = 0
-
-    # Calculate remaining time for distribution
     remaining_time = int(tosi - sum(st.session_state[key] for key in [
         'slide_37a', 'slide_37b', 'slide_37c', 'slide_37d', 'slide_37e', 'slide_37f'
     ]))
-
-    # Create sliders
     st.session_state['slide_37a'] = st.slider(
         '(a) Studiul după manual, suport de curs, bibliografie şi notițe',
         min_value=0,
@@ -881,7 +838,6 @@ if st.session_state['file']!=None or st.session_state['ut']:
         st.write('(f) Alte activități: 0 ore')
         st.session_state['slide_37f'] = 0
 
-    # Button to proceed
     if st.button('Treci la capitolul 4'):
         st.write('Capitolul 4')
         schimba_M_3_7_a(st.session_state['slide_37a'])
@@ -891,9 +847,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         schimba_M_3_7_e(st.session_state['slide_37e'])
         schimba_M_3_7_f(st.session_state['slide_37f'])
         st.session_state['cap4'] = '1'
-
-    
-
+	    
   if st.session_state['cap4']!=None:
     with st.form('capitolul 4'):
       try:
@@ -1204,40 +1158,23 @@ if st.session_state['file']!=None or st.session_state['ut']:
         if (st.session_state['test_curs'])&(st.session_state['test_aplicatie']):
             if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
                 
-                #template= "fisa_template_Mail_.docx"
-                #_, res = DBX.files_download("/fisa_template_Mail_.docx")
-                #template = BytesIO(res.content)
                 _,_,template,_,_,_,_,_,_=load_ftp_file()
             else:
-                #template= "fisa_template_Mail_eng.docx"
-                #_, res = DBX.files_download("/fisa_template_Mail_eng.docx")
-                #template = BytesIO(res.content)
-                #st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
                 _,_,_,template,_,_,_,_,_=load_ftp_file()
         
         if (st.session_state['test_curs'])&(not(st.session_state['test_aplicatie'])):
             if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
-                #template= "fisa_template_Mail_curs_.docx"
                 _, res = DBX.files_download("/fisa_template_Mail_curs_.docx")
                 template = BytesIO(res.content)
                 _,_,_,_,template,_,_,_,_=load_ftp_file()
                 st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
             else:
-                #template= "fisa_template_Mail_curs_eng.docx"
-                #_, res = DBX.files_download("/fisa_template_Mail_curs_eng.docx")
-                #template = BytesIO(res.content)
                 _,_,_,_,_,template,_,_,_=load_ftp_file()
                 st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
         if (not(st.session_state['test_curs']))&(st.session_state['test_aplicatie']):
             if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
-                #template= "fisa_template_Mail_aplicatie_.docx"
-                #_, res = DBX.files_download("/fisa_template_Mail_aplicatie_.docx")
-                #template = BytesIO(res.content)
                 _,_,_,_,_,_,template,_,_=load_ftp_file()
             else:
-                #template= "fisa_template_Mail_aplicatie_eng.docx"
-                #_, res = DBX.files_download("/fisa_template_Mail_aplicatie_eng.docx")
-                #template = BytesIO(res.content)
                 _,_,_,_,_,_,_,template,_=load_ftp_file()
                 st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
 
@@ -1339,10 +1276,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         document.merge(M_3_8=st.session_state['M_3_8'])
         document.merge(M_2_3_1=st.session_state['M_2_3_1'])
         document.merge(M_3_11=st.session_state['M_3_11'])
-        #st.write(st.session_state)
         file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.docx'
-        #st.write(st.session_state['M_1_6'])
-        #try:
         current_datetime = datetime.now()    
         document.write(file_name)
         st.markdown(get_binary_file_downloader_html(file_name, 'Word document'), unsafe_allow_html=True)
@@ -1352,8 +1286,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         def fix_encoding(text):
             return text.encode('latin1').decode('utf-8')
               
-        #file_path = 'baza.csv'
-        #_, _, _, _, _, _, _, _, df = load_ftp_file()  # Load the DataFrame from FTP
+
         df = data2
         st.dataframe(data2)
         required_keys = data2.columns  # Use `data2` column names as expected keys
@@ -1371,9 +1304,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
             new_row_df[col] = new_row_df[col].astype(str)
         #st.dataframe(new_row_df)
         df = pd.concat([data2, new_row_df], ignore_index=True)
-        
-
-
+     
         st.dataframe(df)      
         file_buffer = BytesIO()
         
@@ -1415,9 +1346,3 @@ if st.session_state['file']!=None or st.session_state['ut']:
         if clear_resource_button:
            clear_resource(df)
            st.success("Datele au fost scrise!")
-    
-
-
-
-
-
