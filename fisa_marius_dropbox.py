@@ -676,15 +676,14 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
                 #schimba_2_3(add_selectbox_TA)
                 #st.write(st.session_state['M_2_3_1'])
-                st.dataframe(data1['nume_disciplina'])
-                st.write(st.session_state['M_1_6'])
-                st.write(st.session_state['M_2_1'])
+                
 		
                 #st.session_state['M_2_4']=str(data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 #st.write("Anul in care e studiata disciplina aleasa: ",st.session_state['M_2_4'])
                 st.session_state['M_2_5']=str(data1['semestru'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 indices = data1.loc[(data1['specializare'] == st.session_state['M_1_6']) & (data1['nume_disciplina'] == st.session_state['M_2_1']),'semestru'].index
-                st.session_state['M_2_4']=str(data1['an'].loc[indices.tolist()[0]])
+                st.session_state['M_2_4']=str(data1.iloc[indices.tolist()[0], df.columns.get_loc('an')])
+		
 		#st.write("Semestrul in care e studiata disciplina aleasa: ",st.session_state['M_2_5'])
                 st.session_state['M_2_6']=ver[str(data1['examin'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0]).strip()]
                 #st.write("Tipul de examinare pentru disciplina aleasa: ",st.session_state['M_2_6'])
