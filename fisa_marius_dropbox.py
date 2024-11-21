@@ -707,7 +707,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
                 try:
                     st.session_state['M_3_1']=str(int(data1['numarore'].loc[(data1['specializare']==st.session_state['M_1_6'])&(data1['nume_disciplina']==st.session_state['M_2_1'])&(data1['curs']=='CURS      ')].values[0]+data1['numarore'].loc[(data1['nume_disciplina']==add_selectbox_D)&(data1['curs']!='CURS      ')].values[0]))
                     st.session_state['M_3_4']=str(int(14*(data1['numarore'].loc[(data1['specializare']==st.session_state['M_1_6'])&(data1['nume_disciplina']==st.session_state['M_2_1'])&(data1['curs']=='CURS      ')].values[0]+data1['numarore'].loc[(data1['nume_disciplina']==add_selectbox_D)&(data1['curs']!='CURS      ')].values[0])))
- 
+			
                     st.session_state['test_curs']=True
                     st.session_state['test_aplicatie']=True
                 except:
