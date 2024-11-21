@@ -615,7 +615,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
     with st.form('Alege specializarea:'):
         st.write(doc_result.body[1][5][1])
         add_selectbox_SP = st.selectbox(
-          'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6',index=find_closest_match_index(doc_result.body[1][5][1], specializari[st.session_state['M_1_5']]))
+          'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6',index=find_closest_match_index(doc_result.body[1][5][1][0], specializari[st.session_state['M_1_5']]))
         submitted = st.form_submit_button("Treceti la capitolul 2-3")
         if submitted:
             st.session_state['M_1_4']=domeniu[add_selectbox_SP]
@@ -632,7 +632,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
  
         add_selectbox_D = st.selectbox(
                 'Disciplina?',
-                nume_di,key='M_2_1',
+                nume_di,key='M_2_1',index=find_closest_match_index(doc_result.body[1][5][1][0], nume_di),
                 help='Toate datele asociate disciplinei vor fi inserate in fisa disciplinei automat din planul de invatamant')
         #nume_tit1=doc_result.body[3][2][1]+nume_tit
         nume_tit1=nume_tit
