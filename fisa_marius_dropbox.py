@@ -683,7 +683,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
                 st.session_state['M_2_5']=str(data1['semestru'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 indices = data1.loc[(data1['specializare'] == st.session_state['M_1_6']) & (data1['nume_disciplina'] == st.session_state['M_2_1']),'semestru'].index
                 st.write(data1.columns.get_loc('an'))
-		st.dataframe(data1['an'])
+                st.dataframe(data1['an'])
 		
 		st.session_state['M_2_4']=str(data1.iloc[indices.tolist()[0], data1.columns.get_loc('an')])
 		
