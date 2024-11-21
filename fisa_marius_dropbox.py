@@ -680,7 +680,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
                 st.write(st.session_state['M_1_6'])
                 st.write(st.session_state['M_2_1'])
 		
-                st.session_state['M_2_4']=str(data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
+                st.session_state['M_2_4']=data1['an'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0]
                 #st.write("Anul in care e studiata disciplina aleasa: ",st.session_state['M_2_4'])
                 st.session_state['M_2_5']=str(data1['semestru'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0])
                 #st.write("Semestrul in care e studiata disciplina aleasa: ",st.session_state['M_2_5'])
