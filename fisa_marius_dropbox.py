@@ -587,8 +587,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
     lista_d=['Mecanica constructiilor', 'Constructii civile si management', 'Structuri', 'Masuratori terestre', 'Cai ferate, drumuri si poduri','Matematica','Fizica','Limbi straine']
     lista_dd=lista_d
     lista_d=my_function(lista_d)
-    st.write(lista_dd)
-    
+   
     add_selectbox_DP = st.selectbox('Departamentul?',lista_d,index=find_closest_match_index(doc_result.body[1][2][1][0], lista_d))
     #add_selectbox_dom = st.selectbox(
     #        'Domeniul de studii?',
@@ -613,7 +612,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
      
   if st.session_state['cap2']!=None:
     with st.form('Alege specializarea:'):
-        st.write(doc_result.body[1][5][1])
+        
         add_selectbox_SP = st.selectbox(
           'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6',index=find_closest_match_index(doc_result.body[1][5][1][0], specializari[st.session_state['M_1_5']]))
         submitted = st.form_submit_button("Treceti la capitolul 2-3")
@@ -629,10 +628,10 @@ if st.session_state['file']!=None or st.session_state['ut']:
         st.write(st.session_state['M_1_6'])
         nume_di = data1['nume_disciplina'].loc[(data1['specializare']==st.session_state['M_1_6'])].drop_duplicates().tolist()
         data1['ore_s']=14*data1['numarore'].astype(int)
- 
+        st.write(doc_result.body[3][0][0])
         add_selectbox_D = st.selectbox(
                 'Disciplina?',
-                nume_di,key='M_2_1',index=find_closest_match_index(doc_result.body[1][5][1][0], nume_di),
+                nume_di,key='M_2_1',index=find_closest_match_index(doc_result.body[3][0][0], nume_di),
                 help='Toate datele asociate disciplinei vor fi inserate in fisa disciplinei automat din planul de invatamant')
         #nume_tit1=doc_result.body[3][2][1]+nume_tit
         nume_tit1=nume_tit
