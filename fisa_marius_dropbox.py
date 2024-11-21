@@ -676,7 +676,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
                 #schimba_2_3(add_selectbox_TA)
                 #st.write(st.session_state['M_2_3_1'])
-                st.dataframe(data1['specializare'])
+                st.dataframe(data1['nume_disciplina'])
                 st.write(st.session_state['M_1_6'])
                 st.write(st.session_state['M_2_1'])
 		
