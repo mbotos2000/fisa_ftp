@@ -684,8 +684,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
                 indices = data1.loc[(data1['specializare'] == st.session_state['M_1_6']) & (data1['nume_disciplina'] == st.session_state['M_2_1']),'semestru'].index
                 st.write(data1.columns.get_loc('an'))
                 st.dataframe(data1['an'])
-		
-		st.session_state['M_2_4']=str(data1.iloc[indices.tolist()[0], data1.columns.get_loc('an')])
+                st.session_state['M_2_4']=str(data1.iloc[indices.tolist()[0], data1.columns.get_loc('an')])
 		
 		#st.write("Semestrul in care e studiata disciplina aleasa: ",st.session_state['M_2_5'])
                 st.session_state['M_2_6']=ver[str(data1['examin'].loc[(data1['specializare']==st.session_state['M_1_6']) & (data1['nume_disciplina']==st.session_state['M_2_1'])].values[0]).strip()]
