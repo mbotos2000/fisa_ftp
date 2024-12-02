@@ -11,7 +11,7 @@ import time
 import ftplib
 from mailmerge import MailMerge
 from difflib import get_close_matches
-
+import pickle
 import string
 
 def preprocess(text):
@@ -1214,8 +1214,10 @@ if st.session_state['file']!=None or st.session_state['ut']:
           if key in st.session_state:
              document.merge(**{key: st.session_state[key]})
         file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.docx'
-        current_datetime = datetime.now()    
-        document.write(file_name)
+        remote_filename=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.pkl'
+	current_datetime = datetime.now()    
+        
+	document.write(file_name)
         st.markdown(get_binary_file_downloader_html(file_name, 'Word document'), unsafe_allow_html=True)
         st.session_state['denumirefisa']=file_name
         st.session_state['dataintocmire']=str(current_datetime)
@@ -1240,46 +1242,50 @@ if st.session_state['file']!=None or st.session_state['ut']:
           elif new_row_df[col].dtype.name == 'category':  # Convert categories to strings
             new_row_df[col] = new_row_df[col].astype(str)
         #st.dataframe(new_row_df)
-        df = pd.concat([data2, new_row_df], ignore_index=True)
-     
+        dict_from_df = new_row_df.to_dict(orient='records')[0]
+        #df = pd.concat([data2, new_row_df], ignore_index=True)
+        pickle_buffer = BytesIO()
+        pickle.dump(dict_from_df, pickle_buffer)
+        pickle_buffer.seek(0) 
              
-        file_buffer = BytesIO()
+        #file_buffer = BytesIO()
         
-        df.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
-        st.write(df.tail(5))
-        file_buffer.seek(0)  # Reset the buffer's position to the start
-        st.cache_resource.clear()  # Clear @st.cache_resource cache
+        #df.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
+        #st.write(df.tail(5))
+        #file_buffer.seek(0)  # Reset the buffer's position to the start
+        #st.cache_resource.clear()  # Clear @st.cache_resource cache
         ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
         ftp_server1.encoding = "utf-8"
-        ftp_server1.cwd('./public_html')
+        ftp_server1.cwd('./public_html/Fise')
           #ftp_server.delete('baza.csv')
-        ftp_server1.storbinary('STOR baza.csv', file_buffer)  # Send the file
+        ftp_server1.storbinary('STOR {remote_filename}', pickle_buffer)  # Send the file
+        
         ftp_server1.quit()
 	# Convert the updated DataFrame to CSV format
         #data_baza = df.to_csv(index=False)
-        def clear_cache():
-          st.cache_data.clear()  # Clear @st.cache_data cache
-          st.cache_resource.clear()  # Clear @st.cache_resource cache
-        def clear_resource(file):
+        #def clear_cache():
+        #  st.cache_data.clear()  # Clear @st.cache_data cache
+        #  st.cache_resource.clear()  # Clear @st.cache_resource cache
+        #def clear_resource(file):
          
-          file_buffer = BytesIO()
-          file.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
+        #  file_buffer = BytesIO()
+         # file.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
           
-          file_buffer.seek(0)  # Reset the buffer's position to the start
-          ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
-          ftp_server.encoding = "utf-8"
-          ftp_server.cwd('./public_html')
+        #  file_buffer.seek(0)  # Reset the buffer's position to the start
+        #  ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
+         # ftp_server.encoding = "utf-8"
+         # ftp_server.cwd('./public_html')
           #ftp_server.delete('baza.csv')
-          ftp_server.storbinary('STOR baza.csv', file_buffer)  # Send the file
-          ftp_server.quit()
+         # ftp_server.storbinary('STOR baza.csv', file_buffer)  # Send the file
+         # ftp_server.quit()
           #st.cache_data.clear()
           #st.cache_resource.clear()
         # Button to clear cache
-        clear_cache_button = st.form_submit_button("Incarca alta fisa")
-        clear_resource_button = st.form_submit_button("Scrie datele in baza")
-        if clear_cache_button:
+        #clear_cache_button = st.form_submit_button("Incarca alta fisa")
+        #clear_resource_button = st.form_submit_button("Scrie datele in baza")
+        #if clear_cache_button:
         #    clear_cache()
-           st.success("Cache cleared!")
-        if clear_resource_button:
-           clear_resource(df)
-           st.success("Datele au fost scrise!")
+        #   st.success("Cache cleared!")
+        #if clear_resource_button:
+         #  clear_resource(df)
+         #  st.success("Datele au fost scrise!")
