@@ -1241,7 +1241,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
           elif new_row_df[col].dtype.name == 'category':  # Convert categories to strings
             new_row_df[col] = new_row_df[col].astype(str)
         #st.dataframe(new_row_df)
-        dict_from_df = new_row_df.to_dict(orient='records')[0]
+        dict_from_df = new_row_df.to_dict(orient='list')
         #df = pd.concat([data2, new_row_df], ignore_index=True)
         pickle_buffer = BytesIO()
         pickle.dump(dict_from_df, pickle_buffer)
@@ -1257,7 +1257,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         ftp_server1.encoding = "utf-8"
         ftp_server1.cwd('./public_html/Fise')
           #ftp_server.delete('baza.csv')
-        ftp_server1.storbinary('STOR {remote_filename}', pickle_buffer)  # Send the file
+        ftp_server1.storbinary(f'STOR {remote_filename}', pickle_buffer)  # Send the file
         
         ftp_server1.quit()
 	# Convert the updated DataFrame to CSV format
