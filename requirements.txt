@@ -4,4 +4,3 @@ docx_mailmerge2
 pandas
 protobuf
 streamlit
-pickle
