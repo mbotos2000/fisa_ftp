@@ -1185,8 +1185,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         
         if (st.session_state['test_curs'])&(not(st.session_state['test_aplicatie'])):
             if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
-                _, res = DBX.files_download("/fisa_template_Mail_curs_.docx")
-                template = BytesIO(res.content)
+               
                 _,_,_,_,template,_,_,_,_=load_ftp_file()
                 st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
             else:
