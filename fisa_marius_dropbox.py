@@ -1244,7 +1244,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
         dict_from_df = new_row_df.to_dict(orient='list')
         #df = pd.concat([data2, new_row_df], ignore_index=True)
         pickle_buffer = BytesIO()
-        pickle.dump(dict_from_df, pickle_buffer)
+        #!!!!!!!!!!!!
+        pickle.dump({key: str(st.session_state.get(key, '')) for key in st.session_state.keys()}, pickle_buffer)
         pickle_buffer.seek(0) 
              
         #file_buffer = BytesIO()
