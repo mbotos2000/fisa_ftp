@@ -1230,10 +1230,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #os.startfile(file_name)
         def fix_encoding(text):
             return text.encode('latin1').decode('utf-8')
-              
-
         df = data2
-        
         required_keys = data2.columns  # Use `data2` column names as expected keys
         for key in required_keys:
           if key not in st.session_state:
