@@ -1248,21 +1248,21 @@ if st.session_state['file']!=None or st.session_state['ut']:
         for key in required_keys:
           if key not in st.session_state:
            st.session_state[key] = ''
-           data_fpt[key]=st.session_state[key]
+           data_ftp[key]=st.session_state[key]
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
         new_row_df = new_row_df.fillna('')  # Replace with appropriate default values if needed
-        for col in data_fpt.columns:
-          if data_fpt[col].dtype == 'object':  # Convert object columns to strings
-            data_fpt[col] = data_fpt[col].astype(str)
-          elif new_row_df[col].dtype.name == 'category':  # Convert categories to strings
-            data_fpt[col] = data_fpt[col].astype(str)
+        for col in data_ftp.columns:
+          if data_ftp[col].dtype == 'object':  # Convert object columns to strings
+            data_ftp[col] = data_ftp[col].astype(str)
+          elif data_ftp[col].dtype.name == 'category':  # Convert categories to strings
+            data_ftp[col] = data_ftp[col].astype(str)
         #st.dataframe(new_row_df)
         dict_from_df = new_row_df.to_dict(orient='list')
         #df = pd.concat([data2, new_row_df], ignore_index=True)
         csv_buffer = BytesIO()
-        data_fpt.to_csv(csv_buffer, index=False)
+        data_ftp.to_csv(csv_buffer, index=False)
         csv_buffer.seek(0)  # Reset buffer pointer to the beginning
         pickle_buffer = BytesIO()
         #!!!!!!!!!!!!
