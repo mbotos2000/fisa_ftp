@@ -612,10 +612,14 @@ if st.session_state['file']!=None or st.session_state['ut']:
      
   if st.session_state['cap2']!=None:
     with st.form('Alege specializarea:'):
-        
-        add_selectbox_SP = st.selectbox(
+        try:
+         add_selectbox_SP = st.selectbox(
           'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6',index=find_closest_match_index(doc_result.body[1][5][1][0], specializari[st.session_state['M_1_5']]))
-        submitted = st.form_submit_button("Treceti la capitolul 2-3")
+        except:
+         add_selectbox_SP = st.selectbox(
+          'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6', specializari[st.session_state['M_1_5']]))
+        
+	submitted = st.form_submit_button("Treceti la capitolul 2-3")
         if submitted:
             st.session_state['M_1_4']=domeniu[add_selectbox_SP]
             st.session_state['cap2']='2'
@@ -629,11 +633,17 @@ if st.session_state['file']!=None or st.session_state['ut']:
         nume_di = data1['nume_disciplina'].loc[(data1['specializare']==st.session_state['M_1_6'])].drop_duplicates().tolist()
         data1['ore_s']=14*data1['numarore'].astype(int)
         st.write(doc_result.body[5][4][-1][0])
-        add_selectbox_D = st.selectbox(
+        try:
+	    add_selectbox_D = st.selectbox(
                 'Disciplina?',
                 nume_di,key='M_2_1',index=find_closest_match_index(doc_result.body[3][0][3][0], nume_di),
                 help='Toate datele asociate disciplinei vor fi inserate in fisa disciplinei automat din planul de invatamant')
-        #nume_tit1=doc_result.body[3][2][1]+nume_tit
+        except:
+	    add_selectbox_D = st.selectbox(
+                'Disciplina?',
+                nume_di,key='M_2_1',
+                help='Toate datele asociate disciplinei vor fi inserate in fisa disciplinei automat din planul de invatamant')
+	#nume_tit1=doc_result.body[3][2][1]+nume_tit
         nume_tit1=nume_tit
         #nume_tit=doc_result.body[3][1][1]+nume_tit
         add_selectbox_TC = st.multiselect('Titulari curs?',
