@@ -633,7 +633,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #st.write(st.session_state['M_1_6'])
         nume_di = data1['nume_disciplina'].loc[(data1['specializare']==st.session_state['M_1_6'])].drop_duplicates().tolist()
         data1['ore_s']=14*data1['numarore'].astype(int)
-        st.write(doc_result.body[5][4][-1][0])
+        
         try:
          add_selectbox_D = st.selectbox('Disciplina?',
                 nume_di,key='M_2_1',index=find_closest_match_index(doc_result.body[3][0][3][0], nume_di),
