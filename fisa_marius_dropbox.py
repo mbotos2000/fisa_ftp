@@ -1248,6 +1248,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         for key in required_keys:
           if key not in st.session_state:
            st.session_state[key] = ''
+	  if key in st.session_state:
            data_ftp[key]=st.session_state[key]
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
