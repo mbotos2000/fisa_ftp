@@ -1218,7 +1218,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
 		       'M_8_1_o1','M_8_1_mp','M_8_1_mp1','M_8_1_o',
 		       'dep','da_cu','data_fac','data_dep','tip','dir_dep','decan','fac']
         data_ftp=pd.DataFrame(columns=keys_to_merge)
-	for key in keys_to_merge:
+	
+        for key in keys_to_merge:
           if key in st.session_state:
             document.merge(**{key: st.session_state[key]})
         file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.docx'
