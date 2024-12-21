@@ -1245,9 +1245,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
             return text.encode('latin1').decode('utf-8')
         df = data2
         required_keys = data2.columns  # Use `data2` column names as expected keys
-        for key in required_keys:
-          if key not in st.session_state:
-           st.session_state[key] = ''
+        for key in keys_to_merge:
           if key in st.session_state:
            data_ftp[key]=st.session_state[key]
 	# Define the new row based on session state
