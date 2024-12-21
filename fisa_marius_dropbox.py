@@ -1203,7 +1203,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         document = MailMerge(template)
         #st.write(document.get_merge_fields())
         document.merge(da_cu=st.session_state['d_com'])
-        keys_to_merge=['M_1_1','M_1_2','M_1_3','M_1_4','M_1_5','M_1_6','M_1_8',
+        keys_to_merge=['denumirefisa','dataintocmire','M_1_1','M_1_2','M_1_3','M_1_4','M_1_5','M_1_6','M_1_8',
 		       'M_2_1','M_2_2','M_2_3','M_2_3_1','M_2_4','M_2_5','M_2_6','M_2_2_1','M_2_7_1','M_2_7_2',
 		       'M_3_1','M_3_2','M_3_3_l','M_3_3_s','M_3_3_p','M_3_4','M_3_5','M_3_6_s','M_3_6_l','M_3_6_p','M_3_7_a','M_3_7_b','M_3_7_c','M_3_7_d','M_3_7_e','M_3_7_f',
 		       'M_3_8','M_3_9','M_3_11',
@@ -1217,12 +1217,15 @@ if st.session_state['file']!=None or st.session_state['ut']:
 		       'M_10_1_a','M_10_1_c','M_10_2_c','M_10_3_a','M_10_3_c','M_10_6','M_10_2_a','M_8_1_10',
 		       'M_8_1_o1','M_8_1_mp','M_8_1_mp1','M_8_1_o',
 		       'dep','da_cu','data_fac','data_dep','tip','dir_dep','decan','fac']
-        for key in keys_to_merge:
+        data_ftp=pd.DataFrame(columns=keys_to_merge)
+	for key in keys_to_merge:
           if key in st.session_state:
+	     
              document.merge(**{key: st.session_state[key]})
         file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.docx'
         remote_filename=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.pkl'
-        current_datetime = datetime.now()    
+        remote_filename_csv=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.csv'
+	current_datetime = datetime.now()    
         document.write(file_name)
         st.markdown(get_binary_file_downloader_html(file_name, 'Word document'), unsafe_allow_html=True)
         st.session_state['denumirefisa']=file_name
@@ -1235,18 +1238,22 @@ if st.session_state['file']!=None or st.session_state['ut']:
         for key in required_keys:
           if key not in st.session_state:
            st.session_state[key] = ''
+           data_fpt[key]=st.session_state[key]
 	# Define the new row based on session state
 	#Add the new row to `df` using pd.concat
         new_row_df = pd.DataFrame([{key: st.session_state.get(key, '') for key in st.session_state.keys()}])
         new_row_df = new_row_df.fillna('')  # Replace with appropriate default values if needed
-        for col in new_row_df.columns:
-          if new_row_df[col].dtype == 'object':  # Convert object columns to strings
-            new_row_df[col] = new_row_df[col].astype(str)
+        for col in data_fpt.columns:
+          if data_fpt[col].dtype == 'object':  # Convert object columns to strings
+            data_fpt[col] = data_fpt[col].astype(str)
           elif new_row_df[col].dtype.name == 'category':  # Convert categories to strings
-            new_row_df[col] = new_row_df[col].astype(str)
+            data_fpt[col] = data_fpt[col].astype(str)
         #st.dataframe(new_row_df)
         dict_from_df = new_row_df.to_dict(orient='list')
         #df = pd.concat([data2, new_row_df], ignore_index=True)
+        csv_buffer = BytesIO()
+        data_fpt.to_csv(csv_buffer, index=False)
+        csv_buffer.seek(0)  # Reset buffer pointer to the beginning
         pickle_buffer = BytesIO()
         #!!!!!!!!!!!!
         pickle.dump({key: str(st.session_state.get(key, '')) for key in st.session_state.keys()}, pickle_buffer)
@@ -1263,7 +1270,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         ftp_server1.cwd('./public_html/Fise')
           #ftp_server.delete('baza.csv')
         ftp_server1.storbinary(f'STOR {remote_filename}', pickle_buffer)  # Send the file
-        
+        ftp_server1.storbinary(f'STOR {remote_filename_csv}', csv_buffer)
         ftp_server1.quit()
 	# Convert the updated DataFrame to CSV format
         #data_baza = df.to_csv(index=False)
