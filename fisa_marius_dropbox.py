@@ -616,10 +616,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
          add_selectbox_SP = st.selectbox(
           'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6',index=find_closest_match_index(doc_result.body[1][5][1][0], specializari[st.session_state['M_1_5']]))
         except:
-         add_selectbox_SP = st.selectbox(
-          'Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6')
-        
-	submitted = st.form_submit_button("Treceti la capitolul 2-3")
+         add_selectbox_SP = st.selectbox('Programul de studii?',my_function(specializari[st.session_state['M_1_5']]),key='M_1_6')
+        submitted = st.form_submit_button("Treceti la capitolul 2-3")
         if submitted:
             st.session_state['M_1_4']=domeniu[add_selectbox_SP]
             st.session_state['cap2']='2'
