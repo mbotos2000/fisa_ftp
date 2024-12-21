@@ -587,8 +587,11 @@ if st.session_state['file']!=None or st.session_state['ut']:
     lista_d=['Mecanica constructiilor', 'Constructii civile si management', 'Structuri', 'Masuratori terestre', 'Cai ferate, drumuri si poduri','Matematica','Fizica','Limbi straine']
     lista_dd=lista_d
     lista_d=my_function(lista_d)
-   
-    add_selectbox_DP = st.selectbox('Departamentul?',lista_d,index=find_closest_match_index(doc_result.body[1][2][1][0], lista_d))
+    try:
+     add_selectbox_DP = st.selectbox('Departamentul?',lista_d,index=find_closest_match_index(doc_result.body[1][2][1][0], lista_d))
+    except:
+     add_selectbox_DP = st.selectbox('Departamentul?',lista_d)
+	    
     #add_selectbox_dom = st.selectbox(
     #        'Domeniul de studii?',
     #        ('Inginerie civila', 'Inginerie si management', 'Inginerie geodezica'),key='M_1_4'
