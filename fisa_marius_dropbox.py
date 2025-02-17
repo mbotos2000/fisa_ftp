@@ -1274,13 +1274,13 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #st.write(df.tail(5))
         #file_buffer.seek(0)  # Reset the buffer's position to the start
         #st.cache_resource.clear()  # Clear @st.cache_resource cache
-        ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
-        ftp_server1.encoding = "utf-8"
-        ftp_server1.cwd('./public_html/Fise')
+        #ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
+        #ftp_server1.encoding = "utf-8"
+        #ftp_server1.cwd('./public_html/Fise')
           #ftp_server.delete('baza.csv')
-        ftp_server1.storbinary(f'STOR {remote_filename}', pickle_buffer)  # Send the file
-        ftp_server1.storbinary(f'STOR {remote_filename_csv}', csv_buffer)
-        ftp_server1.quit()
+        #ftp_server1.storbinary(f'STOR {remote_filename}', pickle_buffer)  # Send the file
+        #ftp_server1.storbinary(f'STOR {remote_filename_csv}', csv_buffer)
+        #ftp_server1.quit()
 	# Convert the updated DataFrame to CSV format
         #data_baza = df.to_csv(index=False)
         #def clear_cache():
