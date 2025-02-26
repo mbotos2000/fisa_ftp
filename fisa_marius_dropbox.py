@@ -1017,18 +1017,18 @@ if st.session_state['file']!=None or st.session_state['ut']:
             c14=''
           st.text_area('Curs 14',value=c14,key='M_8_1_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            aa=doc_result.body[15][1][1][0]
-            st.write(aa)
-            st.text_area('Metode de predare-Curs',value=aa,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+            a111=doc_result.body[15][1][1][0]
+            st.write(a111)
+            st.text_area('Metode de predare-Curs',value=a111,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           except:
-            aa=''
-           # st.text_area('Metode de predare-Curs',value=aa,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+            a111=''
+            st.text_area('Metode de predare-Curs',value=aa,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            bb=doc_result.body[15][1][2][0]
+            b111=doc_result.body[15][1][2][0]
             #parcurge(15,1,2,0)
           except:
-            bb=''
-          st.text_area('Observatii-Curs',value=bb,key='M_8_1_o',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+            b111=''
+          st.text_area('Observatii-Curs',value=b111,key='M_8_1_o',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           text_bc=''
           try:
               for i in range(len(doc_result.body[15][15][0])):
