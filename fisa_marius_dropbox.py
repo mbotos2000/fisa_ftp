@@ -571,7 +571,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
     
   nume_tit = data['nume'].tolist()
-
+  st.write(table_positions)
   st.title("Fisa disciplinei")
   st.write('{:%d-%b-%Y}'.format(date.today()))
 
