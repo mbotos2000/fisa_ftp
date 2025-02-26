@@ -13,7 +13,8 @@ from mailmerge import MailMerge
 from difflib import get_close_matches
 import pickle
 import string
-from docx import Document
+#from docx import Document
+
 def preprocess(text):
     return text.strip().lower().translate(str.maketrans('', '', string.punctuation))
 
