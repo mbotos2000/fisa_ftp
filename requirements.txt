@@ -1,3 +1,4 @@
+docx
 docx2python
 docx_mailmerge
 docx_mailmerge2
