@@ -1043,80 +1043,119 @@ if st.session_state['file']!=None or st.session_state['ut']:
           st.text_area('Aplicatia 1',value=p1,key='M_8_2_1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
             if st.session_state['M_3_2'].isdigit():
-              p1=parcurge(15,18,0,0)
+              p2=parcurge(15,18,0,0)
             else:
-              p1=parcurge(15,2,0,0)  
+              p2=parcurge(15,2,0,0)  
           except:
             p2=''
           st.text_area('Aplicatia 2',value=p2,key='M_8_2_2',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p3=parcurge(15,19,0,0)
+          try:
+            if st.session_state['M_3_2'].isdigit():
+              p3=parcurge(15,19,0,0)
+            else:
+              p2=parcurge(15,3,0,0) 
           except:
             p3=''
           st.text_area('Aplicatia 3',value=p3,key='M_8_2_3',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           
           try:
-            p4=parcurge(15,20,0,0)
+          try:
+            if st.session_state['M_3_2'].isdigit():
+              p4=parcurge(15,20,0,0)
+            else:
+              p4=parcurge(15,4,0,0) 
           except:
             p4=''
           st.text_area('Aplicatia 4',value=p4,key='M_8_2_4',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p5=parcurge(15,21,0,0)
+          try:
+            if st.session_state['M_3_2'].isdigit():
+              p5=parcurge(15,21,0,0)
+            else:
+              p5=parcurge(15,5,0,0) 
           except:
             p5=''
           st.text_area('Aplicatia 5',value=p5,key='M_8_2_5',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p6=parcurge(15,22,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p6=parcurge(15,22,0,0)
+            else:
+              p6=parcurge(15,6,0,0) 
           except:
             p6=''
           st.text_area('Aplicatia 6',value=p6,key='M_8_2_6',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p7=parcurge(15,23,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p7=parcurge(15,23,0,0)
+            else:
+              p7=parcurge(15,7,0,0) 
           except:
             p7=''
           st.text_area('Aplicatia 7',value=p7,key='M_8_2_7',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p8=parcurge(15,24,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p8=parcurge(15,24,0,0)
+            else:
+              p8=parcurge(15,8,0,0) 
           except:
             p8=''
           st.text_area('Aplicatia 8',value=p8,key='M_8_2_8',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p9=parcurge(15,25,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p9=parcurge(15,25,0,0)
+            else:
+              p9=parcurge(15,9,0,0) 
           except:
             p9=''
           st.text_area('Aplicatia 9',value=p9,key='M_8_2_9',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p10=parcurge(15,26,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p10=parcurge(15,26,0,0)
+            else:
+              p10=parcurge(15,10,0,0) 
           except:
             p10=''
           st.text_area('Aplicatia 10',value=p10,key='M_8_2_10',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p11=parcurge(15,27,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p11=parcurge(15,27,0,0)
+            else:
+              p11=parcurge(15,11,0,0) 
           except:
             p11=''
           st.text_area('Aplicatia 11',value=p11,key='M_8_2_11',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p12=parcurge(15,28,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p12=parcurge(15,28,0,0)
+            else:
+              p12=parcurge(15,12,0,0) 
           except:
             p12=''
           st.text_area('Aplicatia 12',value=p12,key='M_8_2_12',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p13=parcurge(15,29,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p13=parcurge(15,29,0,0)
+            else:
+              p13=parcurge(15,13,0,0) 
           except:
             p13=''
           st.text_area('Aplicatia 13',value=p13,key='M_8_2_13',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            p14=parcurge(15,30,0,0)
+            if st.session_state['M_3_2'].isdigit():
+              p14=parcurge(15,30,0,0)
+            else:
+              p14=parcurge(15,14,0,0) 
           except:
             p14=''
           st.text_area('Aplicatia 14',value=p14,key='M_8_2_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            aa1=parcurge(15,17,1,0)
+            aa1=parcurge(15,1,1,0)
           except:
             aa1=''  
           text_82mp=st.text_area('Metode de predare-aplicatii',value=aa1, key='M_8_1_mp1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            bb1=parcurge(15,17,1,0)
+            bb1=parcurge(15,1,1,0)
           except:
             bb1=''
           try:
