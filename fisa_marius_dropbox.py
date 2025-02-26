@@ -556,7 +556,7 @@ if not(st.session_state['ut']):
 if st.session_state['file']!=None or st.session_state['ut']:
   if st.session_state['file']!=None: 
     doc_result = docx2python(st.session_state['file'])
-    doc1 = Document(st.session_state['file'])
+    doc1 = docx2python(st.session_state['file'])
     
     table_positions = {}  # Store data in {table_index: {row_index: {col_index: value}}}
 
