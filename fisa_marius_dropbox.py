@@ -5,7 +5,6 @@ import streamlit as st
 import pandas as pd
 from pandas import *
 from docx2python import docx2python
-from docx2python import Document
 import os
 import base64
 import time
@@ -14,7 +13,7 @@ from mailmerge import MailMerge
 from difflib import get_close_matches
 import pickle
 import string
-
+from docx import Document
 def preprocess(text):
     return text.strip().lower().translate(str.maketrans('', '', string.punctuation))
 
