@@ -556,18 +556,7 @@ if not(st.session_state['ut']):
 if st.session_state['file']!=None or st.session_state['ut']:
   if st.session_state['file']!=None: 
     doc_result = docx2python(st.session_state['file'])
-    doc = docx2python(st.session_state['file'])
     
-    table_positions = {}  # Store data in {table_index: {row_index: {col_index: value}}}
-
-    for table_index, table in enumerate(doc.body.tables):
-        table_positions[table_index] = {}
-        
-        for row_index, row in enumerate(table.rows):
-            table_positions[table_index][row_index] = {}
-            
-            for col_index, cell in enumerate(row.cells):
-                table_positions[table_index][row_index][col_index] = cell.text.strip()
 
     
   nume_tit = data['nume'].tolist()
@@ -1028,13 +1017,12 @@ if st.session_state['file']!=None or st.session_state['ut']:
             c14=''
           st.text_area('Curs 14',value=c14,key='M_8_1_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            aa=tables_data[7][1][1]
-            #parcurge(15,1,1,0)
+            aa=parcurge(15,1,1,0)
           except:
             aa=''
           text_81mp=st.text_area('Metode de predare-Curs',value=aa,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            bb=tables_data[7][1][2]
+            bb=aa=parcurge(15,1,2,0)
             #parcurge(15,1,2,0)
           except:
             bb=''
@@ -1161,16 +1149,16 @@ if st.session_state['file']!=None or st.session_state['ut']:
             p14=''
           st.text_area('Aplicatia 14',value=p14,key='M_8_2_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            aa1=tables_data[7][17][1]
+            aa1=parcurge(15,1,1,0)
           except:
             aa1=''  
           text_82mp=st.text_area('Metode de predare-aplicatii',value=aa1, key='M_8_1_mp1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            bb1=tables_data[7][17][2]
+            bb1=parcurge(15,1,2,0)
           except:
             bb1=''
           try:
-            text_ba=tables_data[7][31][1]
+            text_ba=parcurge(15,31,0,0)
           except:
             text_ba=''
             
