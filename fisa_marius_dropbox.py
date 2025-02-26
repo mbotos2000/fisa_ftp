@@ -1057,7 +1057,6 @@ if st.session_state['file']!=None or st.session_state['ut']:
           except:
             p3=''
           st.text_area('Aplicatia 3',value=p3,key='M_8_2_3',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-          
           try:
             if st.session_state['M_3_2'].isdigit():
               p4=parcurge(15,20,0,0)
