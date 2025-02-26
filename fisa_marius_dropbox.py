@@ -561,17 +561,16 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
     for table_index, table in enumerate(doc.tables):
         table_positions[table_index] = {}
-	
-	for row_index, row in enumerate(table.rows):
-	    table_positions[table_index][row_index] = {}
-	    
-	    for col_index, cell in enumerate(row.cells):
-		table_positions[table_index][row_index][col_index] = cell.text.strip()
-    
+        
+        for row_index, row in enumerate(table.rows):
+            table_positions[table_index][row_index] = {}
+            
+            for col_index, cell in enumerate(row.cells):
+                table_positions[table_index][row_index][col_index] = cell.text.strip()
 
     
   nume_tit = data['nume'].tolist()
-  st.write(table_positions)
+ 
   st.title("Fisa disciplinei")
   st.write('{:%d-%b-%Y}'.format(date.today()))
 
@@ -1028,13 +1027,13 @@ if st.session_state['file']!=None or st.session_state['ut']:
             c14=''
           st.text_area('Curs 14',value=c14,key='M_8_1_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            aa=tables_data[7][9][1]
+            aa=tables_data[7][1][1]
             #parcurge(15,1,1,0)
           except:
             aa=''
           text_81mp=st.text_area('Metode de predare-Curs',value=aa,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            bb=tables_data[7][9][2]
+            bb=tables_data[7][1][2]
             #parcurge(15,1,2,0)
           except:
             bb=''
@@ -1161,16 +1160,16 @@ if st.session_state['file']!=None or st.session_state['ut']:
             p14=''
           st.text_area('Aplicatia 14',value=p14,key='M_8_2_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            aa1=parcurge(15,1,1,0)
+            aa1=tables_data[7][17][1]
           except:
             aa1=''  
           text_82mp=st.text_area('Metode de predare-aplicatii',value=aa1, key='M_8_1_mp1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            bb1=tables_data[7][17][1]
+            bb1=tables_data[7][17][2]
           except:
             bb1=''
           try:
-            text_ba=tables_data[7][17][2]
+            text_ba=tables_data[7][31][1]
           except:
             text_ba=''
             
