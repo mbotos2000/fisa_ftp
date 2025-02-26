@@ -1017,12 +1017,12 @@ if st.session_state['file']!=None or st.session_state['ut']:
             c14=''
           st.text_area('Curs 14',value=c14,key='M_8_1_14',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            aa=parcurge(15,1,1,0)
+            aa=parcurge(15,14,1,0)
           except:
             aa=''
           text_81mp=st.text_area('Metode de predare-Curs',value=aa,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
-            bb=aa=parcurge(15,1,2,0)
+            bb=parcurge(15,14,2,0)
             #parcurge(15,1,2,0)
           except:
             bb=''
