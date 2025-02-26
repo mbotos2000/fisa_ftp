@@ -5,6 +5,7 @@ import streamlit as st
 import pandas as pd
 from pandas import *
 from docx2python import docx2python
+from docx2python import Document
 import os
 import base64
 import time
