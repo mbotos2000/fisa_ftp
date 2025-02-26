@@ -135,7 +135,6 @@ def schimba_M_3_5(new):
     st.session_state['M_3_5'] = str(new)
     st.session_state['test_curs']=True
 
-
 def schimba_3_6_s(new):
     st.session_state['M_3_6_s'] = str(new) 
     st.session_state['test_aplicatie']=True
@@ -555,7 +554,21 @@ if not(st.session_state['ut']):
         st.session_state['ut']=True
 if st.session_state['file']!=None or st.session_state['ut']:
   if st.session_state['file']!=None: 
-      doc_result = docx2python(st.session_state['file'])
+    doc_result = docx2python(st.session_state['file'])
+    doc = Document(st.session_state['file'])
+    
+    table_positions = {}  # Store data in {table_index: {row_index: {col_index: value}}}
+
+    for table_index, table in enumerate(doc.tables):
+	table_positions[table_index] = {}
+	
+	for row_index, row in enumerate(table.rows):
+	    table_positions[table_index][row_index] = {}
+	    
+	    for col_index, cell in enumerate(row.cells):
+		table_positions[table_index][row_index][col_index] = cell.text.strip()
+    
+
     
   nume_tit = data['nume'].tolist()
 
