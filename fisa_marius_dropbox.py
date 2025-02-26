@@ -1021,13 +1021,13 @@ if st.session_state['file']!=None or st.session_state['ut']:
             st.write(aa)
           except:
             aa=''
-          text_81mp=st.text_area('Metode de predare-Curs',value=aa,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+          st.text_area('Metode de predare-Curs',value=aa,key='M_8_1_mp',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
             bb=doc_result.body[15][1][2][0]
             #parcurge(15,1,2,0)
           except:
             bb=''
-          text_81o=st.text_area('Observatii-Curs',value=bb,key='M_8_1_o',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+          st.text_area('Observatii-Curs',value=bb,key='M_8_1_o',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           text_bc=''
           try:
               for i in range(len(doc_result.body[15][15][0])):
@@ -1035,7 +1035,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
               text_bc=text_bc[:len(text_bc)-1]
           except:
               pass
-          text_bib_c=st.text_area('Biliografie-Curs',value=text_bc,key='Biblio_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+          st.text_area('Biliografie-Curs',value=text_bc,key='Biblio_c',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
       if st.session_state['test_aplicatie']:
           try:
             if st.session_state['M_3_2'].isdigit():
@@ -1153,7 +1153,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
             aa1=parcurge(15,1,1,0)
           except:
             aa1=''  
-          text_82mp=st.text_area('Metode de predare-aplicatii',value=aa1, key='M_8_1_mp1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+          st.text_area('Metode de predare-aplicatii',value=aa1, key='M_8_1_mp1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
           try:
             bb1=parcurge(15,1,2,0)
           except:
@@ -1163,8 +1163,8 @@ if st.session_state['file']!=None or st.session_state['ut']:
           except:
             text_ba=''
             
-          text_82o=st.text_area('Observatii-aplicatii',value=bb1, key='M_8_1_o1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
-          text_bib_a=st.text_area('Bibliografie-Aplicatii',value=text_ba,key='Biblio_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+          st.text_area('Observatii-aplicatii',value=bb1, key='M_8_1_o1',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
+          st.text_area('Bibliografie-Aplicatii',value=text_ba,key='Biblio_a',placeholder="Completati manual. Aplicatia nu a reusit sa identifice text in fisa incarcata!")
 
       try:
         c9=parcurge(17,0,0,0)
