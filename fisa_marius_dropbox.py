@@ -560,7 +560,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
     
     table_positions = {}  # Store data in {table_index: {row_index: {col_index: value}}}
 
-    for table_index, table in enumerate(doc.tables):
+    for table_index, table in enumerate(doc.body['tables']):
         table_positions[table_index] = {}
         
         for row_index, row in enumerate(table.rows):
