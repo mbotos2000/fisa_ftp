@@ -1036,7 +1036,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
           try:
             if st.session_state['M_3_2'].isdigit():
               p1=parcurge(15,17,0,0)
-	    else:
+            else:
               p1=parcurge(15,1,0,0)          
           except:
             p1=''
