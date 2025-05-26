@@ -537,7 +537,7 @@ def load_ftp_file():
     # Return downloaded files
     return (
         csv_data["lista_cd.csv"], 
-        csv_data["planinv.csv"], 
+        csv_data["planinv_2025.csv"], 
         docx_files["fisa_template_Mail_.docx"], 
         docx_files["fisa_template_Mail_eng.docx"], 
         docx_files["fisa_template_Mail_curs_.docx"], 
@@ -556,9 +556,7 @@ if not(st.session_state['ut']):
 if st.session_state['file']!=None or st.session_state['ut']:
   if st.session_state['file']!=None: 
     doc_result = docx2python(st.session_state['file'])
-    
-
-    
+   
   nume_tit = data['nume'].tolist()
  
   st.title("Fisa disciplinei")
