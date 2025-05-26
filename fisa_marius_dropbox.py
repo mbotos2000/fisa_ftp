@@ -1317,14 +1317,14 @@ if st.session_state['file']!=None or st.session_state['ut']:
 	#ftp_server1.storbinary(f'STOR {file_name}', docx_buffer)
      
         ftp_server1.quit()
-	docx_buffer = BytesIO()
-	document.write(docx_buffer)
-	docx_buffer.seek(0)
+	docx_buff = BytesIO()
+	document.write(docx_buff)
+	docx_buff.seek(0)
 	ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
         ftp_server1.encoding = "utf-8"
         ftp_server1.cwd('./public_html/Fise/2025')
         
-	ftp_server1.storbinary(f'STOR {file_name}', docx_buffer)
+	ftp_server1.storbinary(f'STOR {file_name}', docx_buff)
      
         ftp_server1.quit()
 	# Convert the updated DataFrame to CSV format
