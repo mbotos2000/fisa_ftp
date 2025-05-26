@@ -1277,6 +1277,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
         remote_filename_csv=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_25-26.csv'
         current_datetime = datetime.now()    
         document.write(file_name)
+	
         st.markdown(get_binary_file_downloader_html(file_name, 'Word document'), unsafe_allow_html=True)
         st.session_state['denumirefisa']=file_name
         st.session_state['dataintocmire']=str(current_datetime)
@@ -1307,7 +1308,12 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #!!!!!!!!!!!!
         pickle.dump({key: str(st.session_state.get(key, '')) for key in st.session_state.keys()}, pickle_buffer)
         pickle_buffer.seek(0) 
-             
+        docx_buffer = BytesIO()
+	document.write(docx_buffer)
+	document.close()
+
+	# Prepare buffer for reading
+	docx_buffer.seek(0)
         #file_buffer = BytesIO()
         
         #df.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
@@ -1316,9 +1322,10 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #st.cache_resource.clear()  # Clear @st.cache_resource cache
         ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
         ftp_server1.encoding = "utf-8"
-        ftp_server1.cwd('./public_html/Fise')
+        ftp_server1.cwd('./public_html/Fise/2025')
           #ftp_server.delete('baza.csv')
         ftp_server1.storbinary(f'STOR {remote_filename}', pickle_buffer)  # Send the file
+	ftp_server1.storbinary(f'STOR {filename}', docx_buffer)
         #ftp_server1.storbinary(f'STOR {remote_filename_csv}', csv_buffer)
         ftp_server1.quit()
 	# Convert the updated DataFrame to CSV format
