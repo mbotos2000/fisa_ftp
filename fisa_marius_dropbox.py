@@ -1318,7 +1318,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
         ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
         ftp_server1.encoding = "utf-8"
-        ftp_server1.cwd('./public_html/Fise/2025')
+        ftp_server1.cwd('./public_html/Fise/2025/')
         ftp_server1.storbinary(f'STOR {remote_filename}', pickle_buffer)  # Send the file
 	ftp_server1.storbinary(f'STOR {file_name}', docx_buffer)
         #ftp_server1.storbinary(f'STOR {remote_filename_csv}', csv_buffer)
