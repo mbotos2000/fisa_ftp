@@ -510,7 +510,7 @@ def load_ftp_file():
 
     # Download CSV files
     csv_data = {}
-    for filename in ["lista_cd.csv", "planinv.csv", "baza.csv"]:
+    for filename in ["lista_cd.csv", "planinv_2025.csv", "baza.csv"]:
         with BytesIO() as file_data:
             ftp_server.retrbinary(f"RETR {filename}", file_data.write)
             file_data.seek(0)  # Reset file pointer to the start
