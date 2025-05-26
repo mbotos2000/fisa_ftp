@@ -562,7 +562,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
   st.title("Fisa disciplinei")
   st.write('{:%d-%b-%Y}'.format(date.today()))
 
-  with st.form('Fisa disciplinei pentru Facultatea de constructii'):
+  with st.form('Fisa disciplinei pentru Facultatea de constructii - 2025/2026'):
     st.header('Capitolul 1: Date despre program')
     #st.write(data1['ore'])
     try:
@@ -1272,9 +1272,9 @@ if st.session_state['file']!=None or st.session_state['ut']:
         for key in keys_to_merge:
           if key in st.session_state:
             document.merge(**{key: st.session_state[key]})
-        file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.docx'
-        remote_filename=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.pkl'
-        remote_filename_csv=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_24-25.csv'
+        file_name=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_25-26.docx'
+        remote_filename=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_25-26.pkl'
+        remote_filename_csv=st.session_state['M_1_8']+'_FD_an'+st.session_state['M_2_4']+'_s'+st.session_state['M_2_5']+'_'+pres[st.session_state['M_1_6']]+'_'+st.session_state['M_2_1']+'_25-26.csv'
         current_datetime = datetime.now()    
         document.write(file_name)
         st.markdown(get_binary_file_downloader_html(file_name, 'Word document'), unsafe_allow_html=True)
