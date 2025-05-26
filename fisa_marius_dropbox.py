@@ -1308,24 +1308,19 @@ if st.session_state['file']!=None or st.session_state['ut']:
         #!!!!!!!!!!!!
         pickle.dump({key: str(st.session_state.get(key, '')) for key in st.session_state.keys()}, pickle_buffer)
         pickle_buffer.seek(0) 
-        docx_buffer = BytesIO()
+        
+	docx_buffer = BytesIO()
 	document.write(docx_buffer)
 	document.close()
 
 	# Prepare buffer for reading
 	docx_buffer.seek(0)
-        #file_buffer = BytesIO()
-        
-        #df.to_csv(file_buffer, index=False)  # Save DataFrame as CSV to BytesIO
-        #st.write(df.tail(5))
-        #file_buffer.seek(0)  # Reset the buffer's position to the start
-        #st.cache_resource.clear()  # Clear @st.cache_resource cache
+
         ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
         ftp_server1.encoding = "utf-8"
         ftp_server1.cwd('./public_html/Fise/2025')
-          #ftp_server.delete('baza.csv')
         ftp_server1.storbinary(f'STOR {remote_filename}', pickle_buffer)  # Send the file
-	ftp_server1.storbinary(f'STOR {filename}', docx_buffer)
+	ftp_server1.storbinary(f'STOR {file_name}', docx_buffer)
         #ftp_server1.storbinary(f'STOR {remote_filename_csv}', csv_buffer)
         ftp_server1.quit()
 	# Convert the updated DataFrame to CSV format
