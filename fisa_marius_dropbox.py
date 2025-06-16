@@ -507,6 +507,7 @@ def load_ftp_file():
     #ftp_server = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
     ftp_server = ftplib.FTP_TLS("users.utcluj.ro")
     ftp_server.login(user=st.secrets['u'], passwd=st.secrets['p'])
+    ftp_server.prot_p()
     ftp_server.encoding = "utf-8"  # Force UTF-8 encoding
     ftp_server.cwd('./public_html')
 
@@ -1312,7 +1313,9 @@ if st.session_state['file']!=None or st.session_state['ut']:
         pickle_buffer.seek(0) 
 
 
-        ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
+        ftp_server1 = ftplib.FTP_TLS("users.utcluj.ro")
+        ftp_server1.login(user=st.secrets['u'], passwd=st.secrets['p'])
+        ftp_server1.prot_p()
         ftp_server1.encoding = "utf-8"
         ftp_server1.cwd('./public_html/Fise/2025')
         ftp_server1.storbinary(f'STOR {remote_filename}', pickle_buffer)  # Send the file
@@ -1322,7 +1325,9 @@ if st.session_state['file']!=None or st.session_state['ut']:
         docx_buff=BytesIO()
         document.write(docx_buff)
         docx_buff.seek(0)
-        ftp_server1 = ftplib.FTP("users.utcluj.ro", st.secrets['u'], st.secrets['p'])
+        ftp_server1 = ftplib.FTP_TLS("users.utcluj.ro")
+        ftp_server1.login(user=st.secrets['u'], passwd=st.secrets['p'])
+        ftp_server1.prot_p()
         ftp_server1.encoding = "utf-8"
         ftp_server1.cwd('./public_html/Fise/2025')
         ftp_server1.storbinary(f'STOR {file_name}', docx_buff)
