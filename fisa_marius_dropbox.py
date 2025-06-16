@@ -1339,7 +1339,7 @@ if st.session_state['file']!=None or st.session_state['ut']:
          st.markdown(f"[Incaraca alt fisier docx]({redirect_url1})")
          st.stop()  # Only if needed, or use JS for redirect
         sub2=st.button("Cauta fisa noua in baza de date")
-	if sub2:
+        if sub2:
          st.write("Acceseaza linkul de mai jos pentru a cauta din nou in baza de date o fisa")
          redirect_url2 = "https://fisaconstructiibaza.streamlit.app/"
          st.markdown(f"[Cauta in baza de date]({redirect_url2})")
