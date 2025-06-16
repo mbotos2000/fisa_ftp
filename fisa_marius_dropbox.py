@@ -1333,14 +1333,14 @@ if st.session_state['file']!=None or st.session_state['ut']:
         ftp_server1.storbinary(f'STOR {file_name}', docx_buff)
         ftp_server1.quit()
         st.write("Acceseaza linkul de mai jos pentru a incarca o alta fisa in format docx")
-        redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
-        st.markdown(f"[Incaraca alt fisier *docx]({redirect_url})")
+        redirect_url1 = "https://fisaconstructiiutcn.streamlit.app/"
+        st.markdown(f"[Incaraca alt fisier *docx]({redirect_url1})")
         st.experimental_rerun()  # Only if needed, or use JS for redirect
 	
         st.write("Nu am gasit nici o varianta afisei introdusa anterior!")
         st.write("Acceseaza linkul de mai jos pentru a cauta din nou in baza de date o fisa")
-        redirect_url = "https://fisaconstructiibaza.streamlit.app/"
-        st.markdown(f"[Cauta in baza de date]({redirect_url})")
+        redirect_url2 = "https://fisaconstructiibaza.streamlit.app/"
+        st.markdown(f"[Cauta in baza de date]({redirect_url2})")
         st.experimental_rerun()  # Only if needed, or use JS for redirect# Convert the updated DataFrame to CSV format
         #data_baza = df.to_csv(index=False)
         #def clear_cache():
