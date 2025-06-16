@@ -1332,11 +1332,11 @@ if st.session_state['file']!=None or st.session_state['ut']:
         ftp_server1.cwd('./public_html/Fise/2025')
         ftp_server1.storbinary(f'STOR {file_name}', docx_buff)
         ftp_server1.quit()
-	if st.button("Incarca alt fisier docx"):
+        if st.button("Incarca alt fisier docx"):
          st.write("Acceseaza linkul de mai jos pentru a incarca o alta fisa in format docx")
          redirect_url1 = "https://fisaconstructiiutcn.streamlit.app/"
-          st.markdown(f"[Incaraca alt fisier docx]({redirect_url1})")
-          st.stop()  # Only if needed, or use JS for redirect
+         st.markdown(f"[Incaraca alt fisier docx]({redirect_url1})")
+         st.stop()  # Only if needed, or use JS for redirect
 	
         if st.button("Cauta fisa noua in baza de date")
          st.write("Acceseaza linkul de mai jos pentru a cauta din nou in baza de date o fisa")
