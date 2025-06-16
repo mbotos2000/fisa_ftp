@@ -1325,7 +1325,20 @@ if st.session_state['file']!=None or st.session_state['ut']:
         ftp_server1.cwd('./public_html/Fise/2025')
         ftp_server1.storbinary(f'STOR {file_name}', docx_buff)
         ftp_server1.quit()
-	# Convert the updated DataFrame to CSV format
+	submitted1= st.form_submit_button("Incarca alt *docx")
+      	if submitted1:
+                st.write("Nu am gasit nici o varianta afisei introdusa anterior!")
+                st.write("Acceseaza linkul de mai jos pentru a incarca o fisa in format docx")
+                redirect_url = "https://fisaconstructiiutcn.streamlit.app/"
+                st.markdown(f"[Click here to continue]({redirect_url})")
+                st.experimental_rerun()  # Only if needed, or use JS for redirect
+	submitted2= st.form_submit_button("Cauta alta fisa in baza de date")
+	if submitted1:
+                st.write("Nu am gasit nici o varianta afisei introdusa anterior!")
+                st.write("Acceseaza linkul de mai jos pentru a incarca o fisa in format docx")
+                redirect_url = "https://fisaconstructiibaza.streamlit.app/"
+                st.markdown(f"[Click here to continue]({redirect_url})")
+                st.experimental_rerun()  # Only if needed, or use JS for redirect# Convert the updated DataFrame to CSV format
         #data_baza = df.to_csv(index=False)
         #def clear_cache():
         #  st.cache_data.clear()  # Clear @st.cache_data cache
