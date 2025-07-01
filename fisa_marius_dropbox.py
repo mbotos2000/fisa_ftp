@@ -517,7 +517,7 @@ def load_ftp_file():
 
     # Download CSV files
     csv_data = {}
-    for filename in ["lista_cd.csv", "planinv_2025.csv"]:
+    for filename in ["lista_cd.csv", "planinv_2025.csv","baza.csv"]:
         with BytesIO() as file_data:
             ftp_server.retrbinary(f"RETR {filename}", file_data.write)
             file_data.seek(0)  # Reset file pointer to the start
@@ -551,7 +551,7 @@ def load_ftp_file():
         docx_files["fisa_template_Mail_curs_eng.docx"], 
         docx_files["fisa_template_Mail_aplicatie_.docx"], 
         docx_files["fisa_template_Mail_aplicatie_eng.docx"],
-        csv_data["lista_cd.csv"]
+        csv_data["baza.csv"]
     )
 # Use a session state flag to control cache invalidation
 data,data1,_,_,_,_,_,_,data2=load_ftp_file()
