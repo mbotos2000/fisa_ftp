@@ -557,7 +557,7 @@ def load_ftp_file():
 if "refresh_data" not in st.session_state:
     st.session_state.refresh_data = False
 
-if st.button("🔄 Refresh FTP Data (apasa doar daca nu s-a acutualizat baza de date!!!)"):
+if st.button("🔄 Refresh FTP Data (apasa doar daca nu s-a actualizat baza de date!!!)"):
     st.session_state.refresh_data = True
 if st.session_state.refresh_data:
     load_ftp_file.clear()  # Clear the cache
