@@ -554,6 +554,7 @@ def load_ftp_file():
         csv_data["lista_cd.csv"]
     )
 # Use a session state flag to control cache invalidation
+data,data1,_,_,_,_,_,_,data2=load_ftp_file()
 if "refresh_data" not in st.session_state:
     st.session_state.refresh_data = False
 
@@ -562,7 +563,7 @@ if st.button("🔄 Refresh FTP Data (apasa doar daca nu s-a actualizat baza de d
 if st.session_state.refresh_data:
     load_ftp_file.clear()  # Clear the cache
     st.session_state.refresh_data = False          
-data,data1,_,_,_,_,_,_,data2=load_ftp_file()
+
 
 st.session_state['file'] = st.file_uploader("Incarca o fisa a disciplinei in format *docx")
 if not(st.session_state['ut']):
