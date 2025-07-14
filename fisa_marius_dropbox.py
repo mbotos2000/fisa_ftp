@@ -438,7 +438,8 @@ domeniu={'Amenajari si constructii hidrotehnice - (ACH)':'Inginerie civila'
             ,'Inginerie structurala (IS)':'Inginerie civila'
             ,'Proiectarea avansata a structurilor din lemn si metal (PASLM - Baia Mare)':'Inginerie civila'
             ,'Managementul proiectelor si evaluarea proprietatii (MPEP)':'Inginerie si management'
-            ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)':'Inginerie civila'}
+            ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)':'Inginerie civila'
+	    ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV-e) ':'Inginerie civila'}
 pres={'Amenajari si constructii hidrotehnice - (ACH)':'ACH'
              ,'Cai Ferate, Drumuri si Poduri-(CFDP)':'CFDP'
              ,'Constructii civile, industriale si agricole (CCIA-eng)':'CCIA-eng'
@@ -457,6 +458,7 @@ pres={'Amenajari si constructii hidrotehnice - (ACH)':'ACH'
             ,'Proiectarea avansata a structurilor din lemn si metal (PASLM - Baia Mare)':'PASLM'
             ,'Managementul proiectelor si evaluarea proprietatii (MPEP)':'MPEP'
             ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)':'AICIV'
+            ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV-e)': 'AICIV-e'
      }
 specializari= {
   '':[],
@@ -480,6 +482,7 @@ specializari= {
             ,'Proiectarea avansata a structurilor din lemn si metal (PASLM - Baia Mare)'
             ,'Managementul proiectelor si evaluarea proprietatii (MPEP)',
 	    'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)'
+	    ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV-e)'
             ]
  }
 directori = {
@@ -1243,14 +1246,14 @@ if st.session_state['file']!=None or st.session_state['ut']:
 
         #st.write(st.session_state)
         if (st.session_state['test_curs'])&(st.session_state['test_aplicatie']):
-            if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
+            if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)' or st.session_state['M_1_6']!='Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV-e) ':
                 
                 _,_,template,_,_,_,_,_,_=load_ftp_file()
             else:
                 _,_,_,template,_,_,_,_,_=load_ftp_file()
         
         if (st.session_state['test_curs'])&(not(st.session_state['test_aplicatie'])):
-            if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)':
+            if st.session_state['M_1_6']!='Constructii civile, industriale si agricole (CCIA-eng)' or st.session_state['M_1_6']!='Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV-e) ':
                
                 _,_,_,_,template,_,_,_,_=load_ftp_file()
                 st.session_state['M_1_3']=departamentele[st.session_state['M_1_3']]
