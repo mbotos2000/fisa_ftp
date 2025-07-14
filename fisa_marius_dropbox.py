@@ -439,7 +439,7 @@ domeniu={'Amenajari si constructii hidrotehnice - (ACH)':'Inginerie civila'
             ,'Proiectarea avansata a structurilor din lemn si metal (PASLM - Baia Mare)':'Inginerie civila'
             ,'Managementul proiectelor si evaluarea proprietatii (MPEP)':'Inginerie si management'
             ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)':'Inginerie civila'
-	    ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV-e) ':'Inginerie civila'}
+	    ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV-e)':'Inginerie civila'}
 pres={'Amenajari si constructii hidrotehnice - (ACH)':'ACH'
              ,'Cai Ferate, Drumuri si Poduri-(CFDP)':'CFDP'
              ,'Constructii civile, industriale si agricole (CCIA-eng)':'CCIA-eng'
