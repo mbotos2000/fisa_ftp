@@ -480,8 +480,8 @@ specializari= {
             ,'Inginerie geotehnica (IG)'
             ,'Inginerie structurala (IS)'
             ,'Proiectarea avansata a structurilor din lemn si metal (PASLM - Baia Mare)'
-            ,'Managementul proiectelor si evaluarea proprietatii (MPEP)',
-	    'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)'
+            ,'Managementul proiectelor si evaluarea proprietatii (MPEP)'
+	    ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV)'
 	    ,'Inteligenta artificiala in ing.civila si manag.constructiilor (AICIV-e)'
             ]
  }
